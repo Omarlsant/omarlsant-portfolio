@@ -1,6 +1,13 @@
 import { Link } from 'react-router-dom';
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
 
+const scrollToTop = () => {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth' // Scroll suave
+    });
+};
+
 interface FooterLink {
   label: string;
   href: string;
@@ -18,6 +25,8 @@ const socialLinks: FooterLink[] = [
   { label: 'GitHub', href: 'https://github.com/Omarlsant', isExternal: true, icon: FaGithub },
   { label: 'LinkedIn', href: 'https://www.linkedin.com/in/omarlengua/', isExternal: true, icon: FaLinkedin },
 ];
+
+
 interface LinkColumnProps {
   title: string;
   links: FooterLink[];
@@ -27,29 +36,34 @@ const LinkColumn: React.FC<LinkColumnProps> = ({ title, links }) => (
   <div>
     <h3 className="text-sm font-semibold text-gray-300 tracking-wider uppercase mb-4">{title}</h3>
     <ul className="space-y-2">
-      {links.map((link) => (
-        <li key={link.label}>
-          {link.isExternal ? (
-            <a
-              href={link.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-gray-400 hover:text-white transition-colors duration-300 text-sm inline-flex items-center gap-2"
-              aria-label={link.label}
-            >
-              {link.icon && <link.icon className="w-4 h-4 flex-shrink-0" />}
-              {link.label}
-            </a>
-          ) : (
-            <Link
-              to={link.href}
-              className="text-gray-400 hover:text-white transition-colors duration-300 text-sm"
-            >
-              {link.label}
-            </Link>
-          )}
-        </li>
-      ))}
+      {links.map((link) => {
+         const isHomeLink = !link.isExternal && link.href === '/';
+
+         return (
+            <li key={link.label}>
+                {link.isExternal ? (
+                    <a
+                        href={link.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-gray-400 hover:text-white transition-colors duration-300 text-sm inline-flex items-center gap-2"
+                        aria-label={link.label}
+                    >
+                        {link.icon && <link.icon className="w-4 h-4 flex-shrink-0" />}
+                        {link.label}
+                    </a>
+                ) : (
+                    <Link
+                        to={link.href}
+                        className="text-gray-400 hover:text-white transition-colors duration-300 text-sm"
+                        onClick={isHomeLink ? scrollToTop : undefined}
+                    >
+                        {link.label}
+                    </Link>
+                )}
+            </li>
+         );
+      })}
     </ul>
   </div>
 );
@@ -69,7 +83,7 @@ const Footer = () => {
               />
             </div>
 
-            <div className="w-full sm:w-auto text-center">
+             <div className="w-full sm:w-auto text-center">
               <h3 className="text-sm font-semibold text-gray-300 tracking-wider uppercase mb-4">Social links</h3>
               <ul className="space-y-2 inline-flex flex-col items-start">
                   {socialLinks.map((link) => (
