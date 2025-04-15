@@ -2,10 +2,7 @@ import { Link } from 'react-router-dom';
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
 
 const scrollToTop = () => {
-    window.scrollTo({
-        top: 0,
-        behavior: 'smooth' // Scroll suave
-    });
+    window.scrollTo({ top: 0, behavior: 'smooth' });
 };
 
 interface FooterLink {
@@ -38,7 +35,6 @@ const LinkColumn: React.FC<LinkColumnProps> = ({ title, links }) => (
     <ul className="space-y-2">
       {links.map((link) => {
          const isHomeLink = !link.isExternal && link.href === '/';
-
          return (
             <li key={link.label}>
                 {link.isExternal ? (
@@ -71,21 +67,14 @@ const LinkColumn: React.FC<LinkColumnProps> = ({ title, links }) => (
 
 const Footer = () => {
   return (
-    <footer className="bg-gray-900 text-white pt-12 pb-8">
+    <footer className="text-white pt-12 pb-8 border-t border-gray-700/30 mt-auto">
       <div className="container mx-auto px-4">
-        <div className="flex flex-col items-center md:flex-row md:justify-center md:items-center gap-8 lg:gap-14 mb-10">
-          <div className="flex flex-col items-center sm:flex-row sm:items-start gap-10 lg:gap-14">
-
-            <div className="w-full sm:w-auto text-center sm:text-left">
-              <LinkColumn
-                title="Navigation"
-                links={navigationLinks}
-              />
-            </div>
-
-             <div className="w-full sm:w-auto text-center">
+        <div className="flex flex-col items-center md:flex-row md:justify-center md:items-start gap-8 lg:gap-14 mb-10">
+           <div className="flex flex-col items-center sm:flex-row sm:items-start gap-10 lg:gap-14 text-center sm:text-left">
+            <LinkColumn title="Navigation" links={navigationLinks} />
+            <div>
               <h3 className="text-sm font-semibold text-gray-300 tracking-wider uppercase mb-4">Social links</h3>
-              <ul className="space-y-2 inline-flex flex-col items-start">
+              <ul className="space-y-2 inline-flex flex-col items-center sm:items-start">
                   {socialLinks.map((link) => (
                       <li key={link.label} className='mt-1'>
                           <a
@@ -106,9 +95,9 @@ const Footer = () => {
 
           <div className="w-full md:w-auto text-center md:text-left flex-shrink-0 md:ml-14">
             <h3 className="text-sm font-semibold text-gray-300 tracking-wider uppercase mb-2">Email</h3>
-                <a href="mailto:omarns21@gmail.com" rel="noopener noreferrer" className="block text-gray-400 hover:text-white transition-colors duration-300 text-sm mb-4">
-                    omarns21@gmail.com
-                </a>
+            <a href="mailto:omarns21@gmail.com" rel="noopener noreferrer" className="block text-gray-400 hover:text-white transition-colors duration-300 text-sm mb-4">
+                omarns21@gmail.com
+            </a>
             <h3 className="text-sm font-semibold text-gray-300 tracking-wider uppercase mb-2">Location</h3>
             <p className="text-gray-400 text-sm">
                 Madrid, Spain.
@@ -116,7 +105,7 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="border-t border-gray-700 pt-6 mt-6">
+        <div className="border-t border-gray-700/50 pt-6 mt-6">
             <div className="text-center">
                 <p className="text-gray-500 text-sm">
                     © {new Date().getFullYear()} Omar Lengua. All rights reserved.
