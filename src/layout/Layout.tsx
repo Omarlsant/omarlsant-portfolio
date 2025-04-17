@@ -49,7 +49,7 @@ const Layout = () => {
   }, []);
 
   const particlesLoaded = useCallback(async () => {
-       // console.log('Particles container loaded'); // Descomentar si necesitas logs
+       console.log('Particles container loaded');
   }, []);
 
   if (showLoader || !particlesInitialized) {
@@ -57,7 +57,7 @@ const Layout = () => {
   }
 
   return (
-    <div className="relative flex flex-col min-h-screen bg-gray-900"> {/* Mantiene el fondo base */}
+    <div className="relative flex flex-col min-h-screen bg-gray-900">
       {particlesInitialized && (
          <Particles
             id="tsparticles-layout"
