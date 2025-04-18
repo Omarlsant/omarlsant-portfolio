@@ -6,17 +6,13 @@ import { TypeAnimation } from 'react-type-animation';
 const Home: React.FC = () => {
 
     const welcomeSequence = [
-        'Iniciando sesión...', 800,
-        'Autenticando usuario: guest...', 600,
-        'Acceso concedido.', 400,
-        '¡Bienvenido/a al portfolio de Omar Lengua! 👋\n', 1200,
-        'Soy un Desarrollador Full Stack apasionado por crear experiencias digitales interactivas y eficientes.', 1500,
-        'Utiliza los siguientes comandos para explorar:', 500,
-        '  show projects    -> Ver mis trabajos', 300,
-        '  whoami           -> Conocer más sobre mí', 300,
-        '  ls skills        -> Listar mis habilidades', 300,
-        '  contact          -> Ponerme en contacto', 1000,
-        'Esperando comando...',
+        'Hi there, Welcome to my portfolio! 👋', 1200,
+        'I am a Frontend Developer passionate about creating interactive and efficient digital experiences.', 1500,
+        'Use the following commands to explore:', 500,
+        '  show projects    -> View my projects', 300,
+        '  whoami           -> Learn more about me', 300,
+        '  Contact          -> Get in touch', 1000,
+        'Awaiting command...',
     ];
 
     return (
@@ -30,10 +26,16 @@ const Home: React.FC = () => {
                         Omar Lengua
                     </h1>
                     <p className="text-xl sm:text-2xl text-gray-400 mb-4">
-                        Full Stack Developer
+                        Frontend Developer
                     </p>
                     <p className="text-base sm:text-lg text-gray-300 leading-relaxed">
-                        Transformando ideas complejas en soluciones web elegantes, intuitivas y eficientes. Enfocado en código limpio y experiencias de usuario memorables.
+                        Welcome to my portfolio! Here you can find my projects, skills, and ways to contact me. I hope you enjoy your visit!<br />
+                        <br />
+                        <span className="text-green-200">Feel free to explore the site.</span><br />
+                        <span className="text-green-200">You can also check out my GitHub and LinkedIn profiles.</span><br />
+                        <span className="text-green-200">If you have any questions, don't hesitate to reach out.</span><br />
+                        <span className="text-green-200">I am always open to new opportunities and collaborations.</span><br />
+                        <span className="text-green-200">Use the terminal below to navigate.</span>
                     </p>
                 </header>
 
@@ -60,10 +62,9 @@ const Home: React.FC = () => {
                     </div>
 
                     <div className="mt-auto pt-4 border-t border-gray-700 flex flex-wrap items-center gap-x-4 gap-y-2">
-                        <span className="text-gray-500 hidden sm:inline mr-1">Comandos:</span>
+                        <span className="text-gray-500 hidden sm:inline mr-1">Commands:</span>
                         <Link to="/projects" className="text-green-400 hover:text-white focus:text-white hover:underline focus:underline focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-black focus:ring-green-500 rounded px-1 py-0.5">show projects</Link>
                         <Link to="/about" className="text-green-400 hover:text-white focus:text-white hover:underline focus:underline focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-black focus:ring-green-500 rounded px-1 py-0.5">whoami</Link>
-                        <Link to="/skills" className="text-green-400 hover:text-white focus:text-white hover:underline focus:underline focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-black focus:ring-green-500 rounded px-1 py-0.5">ls skills</Link>
                         <Link to="/contact" className="text-green-400 hover:text-white focus:text-white hover:underline focus:underline focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-black focus:ring-green-500 rounded px-1 py-0.5">contact</Link>
                     </div>
                 </div>
