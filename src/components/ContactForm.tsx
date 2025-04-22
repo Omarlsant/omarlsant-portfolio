@@ -1,6 +1,5 @@
 import { useForm, SubmitHandler } from 'react-hook-form';
 
-// 1. Define la interfaz para los datos del formulario (TypeScript)
 interface FormData {
   name: string;
   email: string;
@@ -8,56 +7,26 @@ interface FormData {
 }
 
 const ContactForm: React.FC = () => {
-  // 2. Inicializa useForm con el tipo FormData
   const {
     register,
     handleSubmit,
     formState: { errors },
     reset,
-    // Opcional: para feedback durante el envío
-    // formState: { isSubmitting }
   } = useForm<FormData>();
 
-  // 3. Define el manejador de envío con el tipo correcto (TypeScript)
   const onSubmit: SubmitHandler<FormData> = async (data) => {
     console.log('Form Data Submitted:', data);
 
-    // Simular una llamada a la API
-    // setSubmitting(true); // Si usas isSubmitting del formState, no necesitas estado local
-    await new Promise(resolve => setTimeout(resolve, 1500)); // Simula delay de red
-    // setSubmitting(false);
-
-    // *** AQUÍ VA LA LÓGICA REAL PARA ENVIAR A TU BACKEND/API ***
-    // try {
-    //   const response = await fetch('/api/contact', {
-    //     method: 'POST',
-    //     headers: { 'Content-Type': 'application/json' },
-    //     body: JSON.stringify(data),
-    //   });
-    //   if (!response.ok) {
-    //     throw new Error('Network response was not ok');
-    //   }
-    //   const result = await response.json();
-    //   console.log('Success:', result);
-    //   alert('¡Mensaje enviado con éxito!');
-    //   reset(); // Limpia el formulario
-    // } catch (error) {
-    //   console.error('Error:', error);
-    //   alert('Hubo un error al enviar el mensaje. Inténtalo de nuevo.');
-    // }
-
-    // Para este ejemplo, solo mostramos alerta y reseteamos
+    await new Promise(resolve => setTimeout(resolve, 1500));
+    
     alert('¡Mensaje enviado! (Simulación) Revisa la consola.');
     reset();
   };
 
-  // Función para manejar errores de validación (opcional)
   const onError = (validationErrors: typeof errors) => {
       console.error('Errores de validación:', validationErrors);
-      // Podrías hacer focus en el primer campo con error si quisieras
   }
 
-  // Clases base para inputs y textarea (Tailwind - DRY)
   const baseInputClasses = "block w-full px-4 py-2 mt-1 border rounded-md shadow-sm text-gray-900 focus:outline-none focus:ring-2 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white";
   const normalBorderClasses = "border-gray-300 focus:ring-indigo-500 focus:border-indigo-500 dark:focus:ring-indigo-400 dark:focus:border-indigo-400";
   const errorBorderClasses = "border-red-500 focus:ring-red-500 focus:border-red-500 dark:border-red-400 dark:focus:ring-red-400 dark:focus:border-red-400";
@@ -65,8 +34,8 @@ const ContactForm: React.FC = () => {
   return (
     <form
       onSubmit={handleSubmit(onSubmit, onError)}
-      className="space-y-6" // Espacio entre los campos
-      noValidate // Deshabilita validación nativa HTML5
+      className="space-y-6"
+      noValidate
     >
       {/* Campo Nombre */}
       <div>
