@@ -22,20 +22,25 @@ const Home: React.FC = () => {
             <div className="flex flex-col items-center gap-8 w-full max-w-4xl">
 
                 <header className="flex flex-col items-center text-center max-w-3xl">
-                    <h1 className="text-5xl sm:text-6xl md:text-7xl font-bold tracking-tight mb-3">
+                    <h1 className="text-5xl sm:text-6xl md:text-7xl font-bold tracking-tight mb-5">
                         Omar Lengua
                     </h1>
                     <p className="text-xl sm:text-2xl text-gray-400 mb-4">
-                        Frontend Developer
+                        Full Stack Developer | AI & Data
                     </p>
+                    <p className="text-base sm:text-lg max-w-xl mx-auto text-slate-300 leading-relaxed mb-8">
+                        Welcome to my digital space! I'm a passionate Full Stack Developer actively broadening my horizons into the exciting fields of AI Development and Data Analysis. Explore my projects and skills below.
+                    </p>
+                    <p className="text-base sm:text-lg text-slate-200">
+                        Want to get in touch? You can find my email and my social media links in the footer.
+                    </p>
+                    <br />
                     <p className="text-base sm:text-lg text-gray-300 leading-relaxed">
-                        Welcome to my portfolio! Here you can find my projects, skills, and ways to contact me. I hope you enjoy your visit!<br />
-                        <br />
-                        <span className="text-green-200">Feel free to explore the site.</span><br />
-                        <span className="text-green-200">You can also check out my GitHub and LinkedIn profiles.</span><br />
-                        <span className="text-green-200">If you have any questions, don't hesitate to reach out.</span><br />
-                        <span className="text-green-200">I am always open to new opportunities and collaborations.</span><br />
-                        <span className="text-green-200">Use the terminal below to navigate.</span>
+                        <span className="text-center mb-12 text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">Feel free to explore the site.</span><br />
+                        <span className="text-center mb-12 text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">You can also check out my GitHub and LinkedIn profiles.</span><br />
+                        <span className="text-center mb-12 text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">If you have any questions, don't hesitate to reach out.</span><br />
+                        <span className="text-center mb-12 text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">I am always open to new opportunities and collaborations.</span><br />
+                        <span className="text-center mb-12 text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">Use the terminal below to navigate.</span>
                     </p>
                 </header>
 

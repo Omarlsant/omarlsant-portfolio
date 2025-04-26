@@ -20,9 +20,9 @@ const About: React.FC = () => {
         { category: 'DevOps & Tools', skills: ['Docker', 'docker-compose', 'CI/CD (GitHub Actions)', 'Git', 'GitHub'] },
     ];
     const softSkills = [
-        'Highly Adaptable', 'Problem Solver', 'Proactive', 'Analytical Thinking',
-        'Time Management', 'Quality-Oriented', 'Effective Communication', 'Team player',
-        'Conflict Resolution', 'Accessibility Awareness (WCAG)',
+        'Highly Adaptable.', 'Problem Solver.', 'Proactive.', 'Analytical Thinking.',
+        'Time Management.', 'Quality-Oriented.', 'Effective Communication.', 'Team player.',
+        'Conflict Resolution.', 'Accessibility Awareness (WCAG).',
     ];
     const education = [
         { title: 'AI Developer', institution: 'Factoría F5', dates: 'Jan 2025 - Present', duration: '1250H', current: true },
@@ -180,7 +180,7 @@ const About: React.FC = () => {
                             // Updated section card styles & different border color
                             <div key={index} className={`${sectionCardBaseStyles} border-l-4 border-slate-500`}>
                                 <h4 className="text-lg font-semibold text-slate-100">{exp.role} - {exp.company} ({exp.location})</h4>
-                                <p className="text-sm text-slate-400">{exp.dates}</p>
+                                <p className="text-sm text-slate-400 mt-2">{exp.dates}</p>
                                 <ul className="list-disc list-inside mt-2 text-slate-300 text-sm space-y-1">
                                     {exp.description.map((item, i) => <li key={i}>{item}</li>)}
                                 </ul>
@@ -193,11 +193,12 @@ const About: React.FC = () => {
 
                 {/* Volunteering Section */}
                 <div className="mb-12">
-                     <h3 className="text-3xl font-bold mb-6 text-center text-slate-100">Volunteering</h3>
-                     <div className={`${sectionCardBaseStyles} border-l-4 border-blue-500`}>
-                         <h4 className="text-lg font-semibold text-slate-100">{volunteering.role} - {volunteering.organization}</h4>
-                         <p className="text-sm text-slate-400">{volunteering.dates}</p>
-                         <p className="mt-2 text-slate-300 text-justify">{volunteering.description} (Platforms: {volunteering.platforms})</p>
+                    <h3 className="text-3xl font-bold mb-6 text-center text-slate-100">Volunteering</h3>
+                    <div className={`${sectionCardBaseStyles} border-l-4 border-blue-500`}>
+                        <h4 className="text-lg font-semibold text-slate-100">{volunteering.role} - {volunteering.organization}</h4>
+                        <p className="text-sm text-slate-400 mt-2">{volunteering.dates}</p>
+                        <p className="text-sm text-slate-400 mt-2">Platforms: {volunteering.platforms}</p>
+                        <p className="mt-2 text-slate-300 text-justify">{volunteering.description}</p>
                     </div>
                 </div>
 
