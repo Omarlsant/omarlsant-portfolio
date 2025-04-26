@@ -6,6 +6,8 @@ import Projects from "../pages/Projects";
 import Contact from "../pages/Contact";
 import UnderConstruction from "../components/UnderConstruction";
 
+const basename = "/omarlsant-portfolio";
+
 export const router = createBrowserRouter([
     {
         path: "/",
@@ -31,6 +33,14 @@ export const router = createBrowserRouter([
                 path: "in-construction",
                 element: <UnderConstruction />,
             },
-        ]
-    }
-]);
+           {
+               path: "*",
+               element: <div>App 404: Page Not Found in Router</div>,
+           }
+       ]
+   }
+],
+
+{ basename: basename }
+
+);

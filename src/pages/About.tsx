@@ -1,4 +1,9 @@
 import React, { useState, useEffect } from 'react';
+import profilePicSrc from '../assets/images/fotoCurso.jpg';
+import googleCertBadge from '../assets/images/google-sc.png';
+import microsoftScBadge from '../assets/images/microsoft-sc.png';
+import microsoftAiBadge from '../assets/images/microsoft-ai.png';
+import pythonCertBadge from '../assets/images/python-ess.png';
 
 const About: React.FC = () => {
     // State for scroll button remains the same
@@ -25,10 +30,10 @@ const About: React.FC = () => {
         { title: 'Banking Administration', institution: 'IFB Certus', dates: 'Mar 2015 - Oct 2018' },
     ];
     const certifications = [
-        { name: 'Cybersecurity of Google', issuer: 'Google (via Coursera)', badgeUrl: '/google-sc.png' },
-        { name: 'SC-900: Security, Compliance and Identity Fundamentals', issuer: 'Microsoft', badgeUrl: '/microsoft-sc.png' },
-        { name: 'AI-900: Azure AI Fundamentals', issuer: 'Microsoft', badgeUrl: '/microsoft-ai.png' },
-        { name: 'Python Essentials 1', issuer: 'Cisco', badgeUrl: '/python-ess.png' }
+        { name: 'Cybersecurity of Google', issuer: 'Google (via Coursera)', badgeUrl: googleCertBadge },
+        { name: 'SC-900: Security, Compliance and Identity Fundamentals', issuer: 'Microsoft', badgeUrl: microsoftScBadge },
+        { name: 'AI-900: Azure AI Fundamentals', issuer: 'Microsoft', badgeUrl: microsoftAiBadge },
+        { name: 'Python Essentials 1', issuer: 'Cisco', badgeUrl: pythonCertBadge },
     ];
     const experience = [
         { role: 'Commercial Assistant', company: 'Snowboarding S.A', location: 'Peru', dates: 'Apr 2018 - Aug 2019',
@@ -79,7 +84,7 @@ const About: React.FC = () => {
                 {/* Profile Picture - Updated border */}
                 <div className="flex justify-center mb-10">
                     <img
-                        src="/fotoCurso.jpg"
+                        src= {profilePicSrc}
                         alt="profile-pic"
                         className="w-32 h-32 sm:w-36 sm:h-36 md:w-40 md:h-40 lg:w-48 lg:h-48 rounded-full object-cover border-4 border-cyan-400 shadow-lg" // Updated border color
                     />

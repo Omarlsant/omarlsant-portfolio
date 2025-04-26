@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { NavLink, Link } from 'react-router-dom';
 import { Menu as MenuIcon, Close as CloseIcon } from '@mui/icons-material';
+import logoimg from '../assets/images/f.png';
 
 const navLinks = [
   { name: 'Home', path: '/' },
@@ -39,7 +40,7 @@ const Navbar = () => {
                 aria-label="Ir a la página de inicio"
             >
              <img
-                src="/f.png"
+                src= {logoimg}
                 alt="Logo del Portfolio - Ir al inicio"
                 className="w-[34px] h-[34px]"
              />
