@@ -3,9 +3,9 @@ import { NavLink, Link } from 'react-router-dom';
 import { Menu as MenuIcon, Close as CloseIcon } from '@mui/icons-material';
 
 const navLinks = [
+  { name: 'Home', path: '/' },
   { name: 'About me', path: '/about' },
-  { name: 'Projects', path: '/projects' },
-  { name: 'Contact', path: '/contact' },
+  { name: 'Projects', path: '/projects' }
 ];
 
 const scrollToTop = () => {

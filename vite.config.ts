@@ -4,5 +4,5 @@ export default defineConfig({
   plugins: [
     tailwindcss(),
   ],
-  // base: "/omarlsant-portfolio/",
+  base: "/omarlsant-portfolio/",
 })
