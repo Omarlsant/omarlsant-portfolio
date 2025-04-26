@@ -18,6 +18,7 @@
     "@mui/material": "^7.0.1",
     "@tailwindcss/vite": "^4.0.17",
     "@tsparticles/react": "^3.0.0",
+    "gh-pages": "^6.3.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-hook-form": "^7.55.0",
