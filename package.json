@@ -1,6 +1,7 @@
 {
   "name": "omarlsant-porfolio",
   "private": true,
+  "homepage": "https://omarlsant.github.io/omarlsant-porfolio",
   "version": "0.0.0",
   "type": "module",
   "scripts": {
