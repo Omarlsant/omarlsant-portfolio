@@ -63,9 +63,8 @@ const Home: React.FC = () => {
 
                     <div className="mt-auto pt-4 border-t border-gray-700 flex flex-wrap items-center gap-x-4 gap-y-2">
                         <span className="text-gray-500 hidden sm:inline mr-1">Commands:</span>
-                        <Link to="/projects" className="text-green-400 hover:text-white focus:text-white hover:underline focus:underline focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-black focus:ring-green-500 rounded px-1 py-0.5">show projects</Link>
-                        <Link to="/about" className="text-green-400 hover:text-white focus:text-white hover:underline focus:underline focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-black focus:ring-green-500 rounded px-1 py-0.5">whoami</Link>
-                        <Link to="/contact" className="text-green-400 hover:text-white focus:text-white hover:underline focus:underline focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-black focus:ring-green-500 rounded px-1 py-0.5">contact</Link>
+                        <Link to="/projects" className="text-green-400 hover:text-white focus:text-white hover:underline focus:underline focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-black focus:ring-green-500 rounded px-1 py-0.5">Show projects</Link>
+                        <Link to="/about" className="text-green-400 hover:text-white focus:text-white hover:underline focus:underline focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-black focus:ring-green-500 rounded px-1 py-0.5">About me</Link>
                     </div>
                 </div>
             </div>
