@@ -10,7 +10,10 @@ const About: React.FC = () => {
     const [showScrollButton, setShowScrollButton] = useState(false);
 
     // Data remains the same
-    const professionalSummary = `Banking administrator shifting my professional focus to the Tech sector. I am a person with strong values, responsible, committed, and constantly motivated to learn. I adapt quickly to new challenges, enjoy contributing creative ideas, and can work effectively under pressure. My genuine interest in technology drives my continuous learning. I am seeking an opportunity to apply my knowledge in a professional environment and contribute to the team's success.`;
+    const professionalSummary = `Banking and Financial Products Administrator currently transitioning into the Technology sector, with one 
+        year of Full Stack web development experience. I am a person with strong values, responsible, committed, 
+        and constantly motivated to learn. My ability to quickly adapt to new challenges, which includes constant 
+        updates on emerging technologies, aligns perfectly with my great passion for programming. `;
     const technicalSkills = [
         { category: 'Languages', skills: ['JavaScript', 'TypeScript', 'Python', 'C'] },
         { category: 'Frontend', skills: ['React', 'Vite', 'Sass', 'Tailwind CSS', 'npm', 'Css'] },
@@ -20,12 +23,12 @@ const About: React.FC = () => {
         { category: 'DevOps & Tools', skills: ['Docker', 'docker-compose', 'CI/CD (GitHub Actions)', 'Git', 'GitHub'] },
     ];
     const softSkills = [
-        'Highly Adaptable.', 'Problem Solver.', 'Proactive.', 'Analytical Thinking.',
-        'Time Management.', 'Quality-Oriented.', 'Effective Communication.', 'Team player.',
-        'Conflict Resolution.', 'Accessibility Awareness (WCAG).',
+        'Highly Adaptable', 'Problem Solver', 'Proactive', 'Analytical Thinking',
+        'Time Management', 'Quality-Oriented', 'Effective Communication', 'Team player',
+        'Conflict Resolution', 'Accessibility Awareness (WCAG)',
     ];
     const education = [
-        { title: 'AI Developer', institution: 'Factoría F5', dates: 'Jan 2025 - Present', duration: '1250H', current: true },
+        { title: 'AI Developer', institution: 'Factoría F5', dates: 'Jan 2025 - Oct 2025', duration: '1250H', current: true },
         { title: 'Full Stack Developer', institution: 'Factoría F5', dates: 'Jun 2024 - Dec 2024', duration: '850H' },
         { title: 'Banking Administration', institution: 'IFB Certus', dates: 'Mar 2015 - Oct 2018' },
     ];
@@ -36,7 +39,9 @@ const About: React.FC = () => {
         { name: 'Python Essentials 1', issuer: 'Cisco', badgeUrl: pythonCertBadge },
     ];
     const experience = [
-        { role: 'Commercial Assistant', company: 'Snowboarding S.A', location: 'Peru', dates: 'Apr 2018 - Aug 2019',
+        { role: 'Full Stack Developer', company: 'Lima Service Security S.A.C', location: 'Perú', dates: 'Sep 2021 - Oct 2022',
+          description: ['Designed the web application architecture. Used Git and GitHub for version control.', 'Developed the frontend using HTML and Vanilla JavaScript, applying styles with CSS.', 'Implemented the REST API (backend) with Node.js and Express to manage CRUD operations.', 'Modeled the relational database in MySQL to store and manage company information, users, inventory and services', 'Implemented an authentication and authorization system based on JWT (JSON Web Tokens) to protect the API endpoints', 'Developed unit tests with Jest', 'Performed application maintenance and implemented new features as required',  ] },
+        { role: 'Commercial Assistant', company: 'Snowboarding S.A', location: 'Perú', dates: 'Apr 2018 - Aug 2019',
           description: ['Generated sales performance and trend reports.', 'Presented results to sales teams and management.', 'Processed orders and verified stock levels.', 'Coordinated logistics and maintained CRM.', ] }
     ];
     const volunteering = {
@@ -98,9 +103,39 @@ const About: React.FC = () => {
                 {/* Professional Summary - Updated card styles */}
                 <div className={`${cardBaseStyles} text-center mb-12`}>
                     <h3 className="text-2xl font-semibold mb-4 text-cyan-400">Summary</h3>
-                    <p className="text-base md:text-lg leading-relaxed text-slate-300 text-justify">
+                    <p className="text-base md:text-md leading-relaxed text-slate-300 text-justify mb-2">
                         {professionalSummary}
                     </p>
+                </div>
+
+                {/* Previous Experience Section */}
+                <div className="mb-12">
+                     <h3 className="text-3xl font-bold mb-6 text-center text-slate-100">Professional Experience</h3>
+                     {experience.map((exp, index) => (
+                            // Updated section card styles & different border color
+                            <div key={index} className={`${sectionCardBaseStyles} border-l-4 border-slate-500 mb-6`}>
+                                <h4 className="text-lg font-semibold text-slate-100">{exp.role} - {exp.company} ({exp.location})</h4>
+                                <p className="text-sm text-slate-400 mt-2">{exp.dates}</p>
+                                <ul className="list-disc list-inside mt-2 text-slate-300 text-sm space-y-1">
+                                    {exp.description.map((item, i) => <li key={i}>{item}</li>)}
+                                </ul>
+                            </div>
+                        ))}
+                 </div>
+
+                  {/* Education Section */}
+                 <div className="mb-12">
+                    <h3 className="text-3xl font-bold mb-6 text-center text-slate-100">Education</h3>
+                     <div className="space-y-6">
+                        {education.map((edu, index) => (
+                            // Updated section card styles & border
+                            <div key={index} className={`${sectionCardBaseStyles} border-l-4 border-cyan-500`}>
+                                <h4 className="text-lg font-semibold text-slate-100">{edu.title} {edu.current && <span className="text-xs bg-blue-500/80 text-white px-2 py-0.5 rounded-full ml-2 align-middle">In progress</span>}</h4>
+                                <p className="text-md text-slate-300">{edu.institution}</p>
+                                <p className="text-sm text-slate-400">{edu.dates} {edu.duration && `(${edu.duration})`}</p>
+                            </div>
+                        ))}
+                    </div>
                 </div>
 
                  {/* Skills Section */}
@@ -131,21 +166,6 @@ const About: React.FC = () => {
                     </div>
                 </div>
 
-                 {/* Education Section */}
-                 <div className="mb-12">
-                    <h3 className="text-3xl font-bold mb-6 text-center text-slate-100">Education</h3>
-                     <div className="space-y-6">
-                        {education.map((edu, index) => (
-                            // Updated section card styles & border
-                            <div key={index} className={`${sectionCardBaseStyles} border-l-4 border-cyan-500`}>
-                                <h4 className="text-lg font-semibold text-slate-100">{edu.title} {edu.current && <span className="text-xs bg-blue-500/80 text-white px-2 py-0.5 rounded-full ml-2 align-middle">In progress</span>}</h4>
-                                <p className="text-md text-slate-300">{edu.institution}</p>
-                                <p className="text-sm text-slate-400">{edu.dates} {edu.duration && `(${edu.duration})`}</p>
-                            </div>
-                        ))}
-                    </div>
-                </div>
-
                 {/* Certifications Section */}
                 <div className="mb-12">
                     <h3 className="text-3xl font-bold mb-6 text-center text-slate-100">Certifications</h3>
@@ -173,32 +193,13 @@ const About: React.FC = () => {
                     </div>
                 </div>
 
-                {/* Previous Experience Section */}
-                <div className="mb-12">
-                     <h3 className="text-3xl font-bold mb-6 text-center text-slate-100">Previous Experience</h3>
-                     {experience.map((exp, index) => (
-                            // Updated section card styles & different border color
-                            <div key={index} className={`${sectionCardBaseStyles} border-l-4 border-slate-500`}>
-                                <h4 className="text-lg font-semibold text-slate-100">{exp.role} - {exp.company} ({exp.location})</h4>
-                                <p className="text-sm text-slate-400 mt-2">{exp.dates}</p>
-                                <ul className="list-disc list-inside mt-2 text-slate-300 text-sm space-y-1">
-                                    {exp.description.map((item, i) => <li key={i}>{item}</li>)}
-                                </ul>
-                            </div>
-                        ))}
-                     <p className="mt-4 text-center text-slate-400 italic">
-                         This experience provided valuable transferable skills as I began my transition into the tech sector.
-                    </p>
-                 </div>
-
                 {/* Volunteering Section */}
                 <div className="mb-12">
-                    <h3 className="text-3xl font-bold mb-6 text-center text-slate-100">Volunteering</h3>
-                    <div className={`${sectionCardBaseStyles} border-l-4 border-blue-500`}>
-                        <h4 className="text-lg font-semibold text-slate-100">{volunteering.role} - {volunteering.organization}</h4>
-                        <p className="text-sm text-slate-400 mt-2">{volunteering.dates}</p>
-                        <p className="text-sm text-slate-400 mt-2">Platforms: {volunteering.platforms}</p>
-                        <p className="mt-2 text-slate-300 text-justify">{volunteering.description}</p>
+                     <h3 className="text-3xl font-bold mb-6 text-center text-slate-100">Volunteering</h3>
+                     <div className={`${sectionCardBaseStyles} border-l-4 border-blue-500`}>
+                         <h4 className="text-lg font-semibold text-slate-100">{volunteering.role} - {volunteering.organization}</h4>
+                         <p className="text-sm text-slate-400">{volunteering.dates}</p>
+                         <p className="mt-2 text-slate-300 text-justify">{volunteering.description} (Platforms: {volunteering.platforms})</p>
                     </div>
                 </div>
 
