@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Redireccionando...</title>
+    <script type="text/javascript">
+      const basePath = '/omarlsant-portfolio/'; 
+
+      sessionStorage.setItem('redirectPath', window.location.pathname + window.location.search + window.location.hash);
+      window.location.replace(basePath);
+    </script>
+  </head>
+  <body>
+    <p>Si no eres redirigido automáticamente, <a id="redirect-link" href="">haz clic aquí</a>.</p>
+    <script type="text/javascript">
+      const linkBasePath = '/omarlsant-portfolio/';
+      document.getElementById('redirect-link').href = linkBasePath;
+    </script>
+  </body>
+</html>
