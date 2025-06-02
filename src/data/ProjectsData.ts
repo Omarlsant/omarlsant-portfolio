@@ -14,8 +14,18 @@ export interface Project {
 
 export const projectsData: Project[] = [
     // === AI Developer Projects ===
-    {
+        {
         id: 'ai-1',
+        category: 'AI Developer',
+        title: 'Keep in Shape',
+        description: 'Predicting the BMI and type of obesity using machine learning.',
+        technologies: ['Python', 'Dash', 'Flask', 'Supabase', 'Docker', 'Docker-compose', 'Jupyter Notebook', 'Pandas', 'Scikit-learn', 'Git', 'Github'],
+        detailedDescription: `This project focuses on predicting the Body Mass Index (BMI) and type of obesity using machine learning techniques. The application is built with Dash and Flask, allowing users to input their physical characteristics and receive predictions on their BMI and obesity type. The data is stored in a Supabase database, and the machine learning model is trained using Scikit-learn. The project is containerized using Docker and Docker-compose for easy deployment.`,
+        repoUrl: 'https://github.com/fergarcat/multiclass_prediction_obesity_risk',
+        type: 'Group'
+    },
+    {
+        id: 'ai-2',
         category: 'AI Developer',
         title: 'Flight Satisfaction Prediction',
         description: 'Predicting flight satisfaction using machine learning (Kaggle dataset).',
@@ -25,7 +35,7 @@ export const projectsData: Project[] = [
         type: 'Group'
     },
     {
-        id: 'ai-2',
+        id: 'ai-3',
         category: 'AI Developer',
         title: 'Housing Price Prediction',
         description: 'RESTful API and simple UI with Flask to predict housing values (California Housing dataset).',
@@ -35,7 +45,7 @@ export const projectsData: Project[] = [
         type: 'Group'
     },
     {
-        id: 'ai-3',
+        id: 'ai-4',
         category: 'AI Developer',
         title: 'EDA: Global and Regional Migration',
         description: 'Exploratory Data Analysis (EDA) on global and regional migration patterns (focus on LatAm).',
@@ -45,7 +55,7 @@ export const projectsData: Project[] = [
         type: 'Group'
     },
     {
-        id: 'ai-4',
+        id: 'ai-5',
         category: 'AI Developer',
         title: 'EDA: Synthetic Stock Market Data',
         description: 'Exploratory Data Analysis (EDA) on a synthetic stock market dataset.',
@@ -55,7 +65,7 @@ export const projectsData: Project[] = [
         type: 'Individual'
     },
     {
-        id: 'ai-5',
+        id: 'ai-6',
         category: 'AI Developer',
         title: 'Job Scraper (Python)',
         description: 'Web scraping of job offers from InfoJobs using Python and Selenium.',
@@ -65,7 +75,7 @@ export const projectsData: Project[] = [
         type: 'Individual'
     },
     {
-        id: 'ai-6',
+        id: 'ai-7',
         category: 'AI Developer',
         title: 'CRUD App',
         description: 'CRUD application using Python and Django.',
@@ -75,7 +85,7 @@ export const projectsData: Project[] = [
         type: 'Individual'
     },
     {
-        id: 'ai-7',
+        id: 'ai-8',
         category: 'AI Developer',
         title: 'Digital Taximeter (Python)',
         description: 'Digital taximeter application with Tkinter and Docker.',
