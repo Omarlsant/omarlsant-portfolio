@@ -1,4 +1,5 @@
-import { useForm, SubmitHandler } from 'react-hook-form';
+// src/components/ContactForm.tsx
+import React, { useState } from 'react';
 
 interface FormData {
   name: string;
@@ -7,120 +8,137 @@ interface FormData {
 }
 
 const ContactForm: React.FC = () => {
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-    reset,
-  } = useForm<FormData>();
+  const [formData, setFormData] = useState<FormData>({
+    name: '',
+    email: '',
+    message: '',
+  });
+  const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
+  const [submitMessage, setSubmitMessage] = useState<string>('');
+  const [submitSuccess, setSubmitSuccess] = useState<boolean | null>(null);
 
-  const onSubmit: SubmitHandler<FormData> = async (data) => {
-    console.log('Form Data Submitted:', data);
-
-    await new Promise(resolve => setTimeout(resolve, 1500));
-    
-    alert('¡Mensaje enviado! (Simulación) Revisa la consola.');
-    reset();
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    const { name, value } = e.target;
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
   };
 
-  const onError = (validationErrors: typeof errors) => {
-      console.error('Errores de validación:', validationErrors);
-  }
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setSubmitMessage('');
+    setSubmitSuccess(null);
 
-  const baseInputClasses = "block w-full px-4 py-2 mt-1 border rounded-md shadow-sm text-gray-900 focus:outline-none focus:ring-2 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white";
-  const normalBorderClasses = "border-gray-300 focus:ring-indigo-500 focus:border-indigo-500 dark:focus:ring-indigo-400 dark:focus:border-indigo-400";
-  const errorBorderClasses = "border-red-500 focus:ring-red-500 focus:border-red-500 dark:border-red-400 dark:focus:ring-red-400 dark:focus:border-red-400";
+    setTimeout(() => {
+      setSubmitMessage("Thank you for your message! I'll be in touch soon.");
+      setSubmitSuccess(true);
+      setIsSubmitting(false);
+      setFormData({ name: '', email: '', message: '' });
+
+
+    }, 2000);
+  };
 
   return (
-    <form
-      onSubmit={handleSubmit(onSubmit, onError)}
-      className="space-y-6"
-      noValidate
-    >
-      {/* Campo Nombre */}
+    <form onSubmit={handleSubmit} className="space-y-6">
       <div>
-        <label htmlFor="name" className="block text-sm font-medium text-gray-700 dark:text-gray-300">
-          Nombre
+        <label
+          htmlFor="name"
+          className="block text-sm font-medium text-gray-700 dark:text-gray-300"
+        >
+          Full Name
         </label>
-        <input
-          id="name"
-          type="text"
-          // 4. Registra el input con validaciones
-          {...register('name', {
-            required: 'El nombre es obligatorio',
-            minLength: { value: 3, message: 'Mínimo 3 caracteres' },
-            maxLength: { value: 50, message: 'Máximo 50 caracteres' },
-          })}
-          // 5. Aplica clases condicionales de Tailwind para errores
-          className={`${baseInputClasses} ${errors.name ? errorBorderClasses : normalBorderClasses}`}
-          aria-invalid={errors.name ? "true" : "false"} // Accesibilidad
-        />
-        {/* 6. Muestra el mensaje de error si existe */}
-        {errors.name && (
-          <p className="mt-1 text-sm text-red-600 dark:text-red-400" role="alert">
-            {errors.name.message}
-          </p>
-        )}
+        <div className="mt-1">
+          <input
+            type="text"
+            name="name"
+            id="name"
+            autoComplete="name"
+            required
+            value={formData.name}
+            onChange={handleChange}
+            disabled={isSubmitting || submitSuccess === true}
+            className="appearance-none block w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:ring-sky-500 focus:border-sky-500 sm:text-sm bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 disabled:opacity-50"
+            placeholder="Your Name"
+          />
+        </div>
       </div>
 
-      {/* Campo Email */}
       <div>
-        <label htmlFor="email" className="block text-sm font-medium text-gray-700 dark:text-gray-300">
-          Email
+        <label
+          htmlFor="email"
+          className="block text-sm font-medium text-gray-700 dark:text-gray-300"
+        >
+          Email Address
         </label>
-        <input
-          id="email"
-          type="email"
-          {...register('email', {
-            required: 'El email es obligatorio',
-            pattern: {
-              value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-              message: 'Formato de email inválido',
-            },
-          })}
-          className={`${baseInputClasses} ${errors.email ? errorBorderClasses : normalBorderClasses}`}
-          aria-invalid={errors.email ? "true" : "false"}
-        />
-        {errors.email && (
-          <p className="mt-1 text-sm text-red-600 dark:text-red-400" role="alert">
-            {errors.email.message}
-          </p>
-        )}
+        <div className="mt-1">
+          <input
+            id="email"
+            name="email"
+            type="email"
+            autoComplete="email"
+            required
+            value={formData.email}
+            onChange={handleChange}
+            disabled={isSubmitting || submitSuccess === true}
+            className="appearance-none block w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:ring-sky-500 focus:border-sky-500 sm:text-sm bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 disabled:opacity-50"
+            placeholder="you@example.com"
+          />
+        </div>
       </div>
 
-      {/* Campo Mensaje */}
       <div>
-        <label htmlFor="message" className="block text-sm font-medium text-gray-700 dark:text-gray-300">
-          Mensaje
+        <label
+          htmlFor="message"
+          className="block text-sm font-medium text-gray-700 dark:text-gray-300"
+        >
+          Message
         </label>
-        <textarea
-          id="message"
-          rows={5}
-          {...register('message', {
-            required: 'El mensaje es obligatorio',
-            minLength: { value: 10, message: 'Mínimo 10 caracteres' },
-          })}
-          className={`${baseInputClasses} ${errors.message ? errorBorderClasses : normalBorderClasses}`}
-          aria-invalid={errors.message ? "true" : "false"}
-        />
-        {errors.message && (
-          <p className="mt-1 text-sm text-red-600 dark:text-red-400" role="alert">
-            {errors.message.message}
-          </p>
-        )}
+        <div className="mt-1">
+          <textarea
+            id="message"
+            name="message"
+            rows={4}
+            required
+            value={formData.message}
+            onChange={handleChange}
+            disabled={isSubmitting || submitSuccess === true}
+            className="appearance-none block w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:ring-sky-500 focus:border-sky-500 sm:text-sm bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 disabled:opacity-50"
+            placeholder="Your message here..."
+          />
+        </div>
       </div>
 
-      {/* Botón de Envío */}
+      {submitMessage && (
+        <div
+          className={`p-3 rounded-md text-sm ${
+            submitSuccess
+              ? 'bg-green-50 dark:bg-green-900 text-green-700 dark:text-green-300'
+              : 'bg-red-50 dark:bg-red-900 text-red-700 dark:text-red-300'
+          }`}
+        >
+          {submitMessage}
+        </div>
+      )}
+
       <div>
         <button
           type="submit"
-          // disabled={isSubmitting} // Deshabilita mientras se envía
-          className="w-full inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800 transition duration-150 ease-in-out disabled:opacity-50"
+          disabled={isSubmitting || submitSuccess === true}
+          className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-sky-600 hover:bg-sky-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-sky-500 dark:focus:ring-offset-gray-800 disabled:opacity-50 disabled:cursor-not-allowed"
         >
-          {/* {isSubmitting ? 'Enviando...' : 'Enviar Mensaje'} */}
-          Enviar Mensaje
+          {isSubmitting ? 'Sending...' : 'Send Message'}
         </button>
       </div>
+      {submitSuccess === true && (
+         <p className="text-sm text-center text-gray-600 dark:text-gray-400 mt-4">
+            The form has been submitted. If you wish to send another message, please refresh the page.
+         </p>
+      )}
     </form>
   );
 };
