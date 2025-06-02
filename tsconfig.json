@@ -1,5 +1,8 @@
 {
   "files": [],
+  "moduleResolution": "bundler",
+  "skipLibCheck": true,
+  
   "references": [
     { "path": "./tsconfig.app.json" },
     { "path": "./tsconfig.node.json" }

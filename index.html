@@ -8,7 +8,6 @@
     <script type="text/javascript">
       (function() {
         const redirectPath = sessionStorage.getItem('redirectPath');
-        // Limpiar siempre, incluso si no hay redirectPath, para evitar problemas en refrescos normales
         sessionStorage.removeItem('redirectPath'); 
         
         if (redirectPath) {
