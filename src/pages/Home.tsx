@@ -13,8 +13,8 @@ import webScraper from '../assets/images/webScraper.png';
 const featuredCarouselConfig: Array<{ projectId: string; image: string; customDescription?: string }> = [
     { projectId: 'fs-1', image: portfolioImage, customDescription: 'A comprehensive showcase of my professional portfolio, highlighting key projects and skills.' },
     { projectId: 'ai-1', image: keepInShape, customDescription: 'Machine learning model for predicting BMI and classifying different types of obesity.' },
-    { projectId: 'ai-', image: flightFeelAnalizer, customDescription: 'Analyzing and predicting flight satisfaction using machine learning on a Kaggle dataset.' },
-    { projectId: 'ai-6', image: californiaDreaming, customDescription: 'Predicting housing values for California properties using a machine learning approach.' },
+    { projectId: 'ai-2', image: flightFeelAnalizer, customDescription: 'Analyzing and predicting flight satisfaction using machine learning on a Kaggle dataset.' },
+    { projectId: 'ai-3', image: californiaDreaming, customDescription: 'Predicting housing values for California properties using a machine learning approach.' },
     { projectId: 'ai-6', image: webScraper, customDescription: 'Automated web scraper for InfoJobs job offers, built with Python and Selenium.' },
 ];
 
