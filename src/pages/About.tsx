@@ -10,10 +10,7 @@ const About: React.FC = () => {
     const [showScrollButton, setShowScrollButton] = useState(false);
 
     // Data remains the same
-    const professionalSummary = `Banking and Financial Products Administrator currently transitioning into the Technology sector, with one 
-        year of Full Stack web development experience. I am a person with strong values, responsible, committed, 
-        and constantly motivated to learn. My ability to quickly adapt to new challenges, which includes constant 
-        updates on emerging technologies, aligns perfectly with my great passion for programming. `;
+    const professionalSummary = `Full Stack Developer with one year of experience in web application development, from creation and deployment to continuous maintenance. I integrate my knowledge in AI development to enhance product utility and innovation. My value proposition lies in effectively bridging business requirements with technical execution, ensuring seamless product alignment with strategic objectives.`;
     const technicalSkills = [
         { category: 'Languages', skills: ['JavaScript', 'TypeScript', 'Python', 'C'] },
         { category: 'Frontend', skills: ['React', 'Vite', 'Sass', 'Tailwind CSS', 'npm', 'Css'] },
@@ -28,9 +25,9 @@ const About: React.FC = () => {
         'Conflict Resolution', 'Accessibility Awareness (WCAG)',
     ];
     const education = [
-        { title: 'AI Developer', institution: 'Factoría F5', dates: 'Jan 2025 - Oct 2025', duration: '1250H', current: true },
-        { title: 'Full Stack Developer', institution: 'Factoría F5', dates: 'Jun 2024 - Dec 2024', duration: '850H' },
-        { title: 'Banking Administration', institution: 'IFB Certus', dates: 'Mar 2015 - Oct 2018' },
+        { title: 'AI Developer', institution: 'Factoría F5', dates: 'Jan 2025 - Oct 2025', duration: '9 mth', current: true },
+        { title: 'Full Stack Developer', institution: 'Factoría F5', dates: 'Jun 2024 - Dec 2024', duration: '6 mth' },
+        { title: 'Banking Administration', institution: 'IFB Certus', dates: 'Mar 2015 - Oct 2018', duration: '3 years' }
     ];
     const certifications = [
         { name: 'Cybersecurity of Google', issuer: 'Google (via Coursera)', badgeUrl: googleCertBadge },
@@ -39,10 +36,10 @@ const About: React.FC = () => {
         { name: 'Python Essentials 1', issuer: 'Cisco', badgeUrl: pythonCertBadge },
     ];
     const experience = [
-        { role: 'Full Stack Developer', company: 'Lima Service Security S.A.C', location: 'Perú', dates: 'Sep 2021 - Oct 2022',
-          description: ['Designed the web application architecture. Used Git and GitHub for version control.', 'Developed the frontend using HTML and Vanilla JavaScript, applying styles with CSS.', 'Implemented the REST API (backend) with Node.js and Express to manage CRUD operations.', 'Modeled the relational database in MySQL to store and manage company information, users, inventory and services', 'Implemented an authentication and authorization system based on JWT (JSON Web Tokens) to protect the API endpoints', 'Developed unit tests with Jest', 'Performed application maintenance and implemented new features as required',  ] },
-        { role: 'Commercial Assistant', company: 'Snowboarding S.A', location: 'Perú', dates: 'Apr 2018 - Aug 2019',
-          description: ['Generated sales performance and trend reports.', 'Presented results to sales teams and management.', 'Processed orders and verified stock levels.', 'Coordinated logistics and maintained CRM.', ] }
+        { role: 'Full Stack Developer', company: 'Lima Service Security S.A.C', location: 'Perú', dates: 'Jan 2022 - oct 2022', duration: '(10 mth)',
+          description: ['The company lacked a professional web presence and a structured method for capturing and managing potential client interest. Their capacity to generate new business digitally was limited. Service requests were handled informally, without a system to register them, increasing the risk of lost business opportunities.'], descrip: ["Led the implementation of the project's architecture and technical design in coordination with the CEO", "Developed and deployed comprehensive full-stack solutions (frontend, backend, and database), leveraging key technologies.", "Ensured continuous application functionality through proactive maintenance and iteratively developed new features, responding to evolving business requirements"], },
+        { role: 'Commercial Assistant', company: 'Snowboarding S.A', location: 'Perú', dates: 'Apr 2018 - feb 2019', duration: '(11 mth)',
+          description: ['Tasked with optimizing regional market performance and streamlining order fulfillment, my core responsibility involved synthesizing raw performance and market data into strategic management reports, and ensuring a seamless end-to-end order processing flow, including logistics coordination, within my assigned territory.',], descrip: ["Generated sales reports, analyzed performance results, sales, market trends, and best-selling products, and presented them to management", "Managed and processed customer orders across my assigned region (retail, distributors, online channels).", "Verified stock availability and coordinated with the logistics department. Updated and maintained the customer database."] }
     ];
     const volunteering = {
         role: 'User Tester', organization: 'Fundación Telefónica', dates: 'Nov 2024 (8h)', platforms: 'Marte & Saturno',
@@ -115,9 +112,10 @@ const About: React.FC = () => {
                             // Updated section card styles & different border color
                             <div key={index} className={`${sectionCardBaseStyles} border-l-4 border-slate-500 mb-6`}>
                                 <h4 className="text-lg font-semibold text-slate-100">{exp.role} - {exp.company} ({exp.location})</h4>
-                                <p className="text-sm text-slate-400 mt-2">{exp.dates}</p>
+                                <p className="text-sm text-slate-400 mt-2">{exp.dates} {exp.duration}</p>
+                                <p className="text-sm text-slate-400 mt-2">{exp.description}</p>
                                 <ul className="list-disc list-inside mt-2 text-slate-300 text-sm space-y-1">
-                                    {exp.description.map((item, i) => <li key={i}>{item}</li>)}
+                                    {exp.descrip?.map((item, i) => <li key={i}>{item}</li>)}
                                 </ul>
                             </div>
                         ))}
