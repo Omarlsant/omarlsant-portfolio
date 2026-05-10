@@ -13,6 +13,7 @@
     "deploy": "gh-pages -d dist"
   },
   "dependencies": {
+    "@google/generative-ai": "^0.24.1",
     "@supabase/supabase-js": "^2.105.4",
     "@tailwindcss/vite": "^4.0.17",
     "gh-pages": "^6.3.0",
