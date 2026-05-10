@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { NavLink, Link } from 'react-router-dom';
-import { Menu as MenuIcon, Close as CloseIcon } from '@mui/icons-material';
 import logoimg from '../assets/images/f.png';
+import { FaBars, FaTimes } from 'react-icons/fa';
 
 const navLinks = [
   { name: 'Home', path: '/' },
@@ -71,9 +71,9 @@ const Navbar = () => {
               aria-label={isMobileMenuOpen ? "Cerrar menú principal" : "Abrir menú principal"}
             >
               {isMobileMenuOpen ? (
-                <CloseIcon className="block h-6 w-6" aria-hidden="true" />
+                <FaTimes className="block h-6 w-6" aria-hidden="true" />
               ) : (
-                <MenuIcon className="block h-6 w-6" aria-hidden="true" />
+                <FaBars className="block h-6 w-6" aria-hidden="true" />
               )}
             </button>
           </div>
