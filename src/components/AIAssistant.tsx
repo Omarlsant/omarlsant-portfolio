@@ -40,30 +40,24 @@ const AIAssistant: React.FC = () => {
   };
 
   const formatBotMessage = (text: string) => {
-    // Verificación de Call to Action Link
     const wantsProjects = text.toLowerCase().includes('/projects');
 
-    // 1. Separamos el texto que entrega la API salto a salto de línea
     const lines = text.split('\n');
 
     const formattedLines = lines.map((line, index) => {
         let currentLine = line;
 
-        // Comprueba si esta línea de texto la AI quería mandarla como lista ('*' o '-')
         const isListItem = currentLine.trim().startsWith('-') || currentLine.trim().startsWith('*');
         if (isListItem) {
-            // Le quito el guión crudo, dejo el texto
             currentLine = currentLine.trim().substring(1).trim(); 
         }
 
-        // Convierto asteriscos **texto** a Bold con tailwind 
         const htmlLine = currentLine.replace(/\*\*(.*?)\*\*/g, '<strong class="text-white font-extrabold">$1</strong>');
         const renderedHtml = { __html: htmlLine };
 
         if (!currentLine.trim()) return <br key={index} />;
 
         if (isListItem) {
-             // Devolvemos el ítem estilizado para terminal y un puntito delante de Tailwind list-disc
             return <li key={index} dangerouslySetInnerHTML={renderedHtml} className="ml-5 mt-1 list-disc text-slate-300" />
         }
 
@@ -73,7 +67,7 @@ const AIAssistant: React.FC = () => {
     return (
       <div className="flex flex-col gap-1 w-full max-w-full">
         <div className="leading-relaxed font-mono text-[14.5px] w-full break-words opacity-95 tracking-wide text-sky-200">
-           {/* Si mandó listas, React las iterará y dibujará precioso */}
+           {/* Si mandó listas, React las iterará y dibujará */}
            <ul className="marker:text-emerald-500 w-full">
              {formattedLines}
            </ul>
@@ -106,7 +100,7 @@ const AIAssistant: React.FC = () => {
           <p className="flex-1 text-center text-slate-500 text-xs font-mono tracking-widest ml-[-40px]">omar_sh ~ (agent)</p>
         </div>
 
-        {/* CONTENEDOR CON LA REFERENCIA (Solo scrollea esto) */}
+        {/* CONTENEDOR CON LA REFERENCIA */}
         <div ref={chatContainerRef} className="flex-1 overflow-y-auto p-5 md:p-8 space-y-6 font-mono scrollbar-thin scrollbar-thumb-slate-700 bg-slate-950">
           <div className="mb-6 pb-3 text-slate-600 border-b border-slate-800 text-[13px]">
              System.AI Model: Local.RAG_Node Initialized...
