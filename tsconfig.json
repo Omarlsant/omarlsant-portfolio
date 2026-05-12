@@ -1,7 +1,9 @@
 {
   "files": [],
-  "moduleResolution": "bundler",
-  "skipLibCheck": true,
+  "compilerOptions": {
+    "moduleResolution": "bundler",
+    "skipLibCheck": true,
+  },
   
   "references": [
     { "path": "./tsconfig.app.json" },
