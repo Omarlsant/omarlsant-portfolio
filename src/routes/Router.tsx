@@ -1,4 +1,4 @@
-import { createBrowserRouter } from "react-router-dom";
+import { createHashRouter } from "react-router-dom";
 import Layout from "../layout/Layout";
 import Home from "../pages/Home";
 import About from "../pages/About";
@@ -6,9 +6,8 @@ import Projects from "../pages/Projects";
 import Contact from "../pages/Contact";
 import UnderConstruction from "../components/UnderConstruction";
 
-const basename = "/omarlsant-portfolio";
-
-export const router = createBrowserRouter([
+// Cambiamos createBrowserRouter a createHashRouter para Github Pages
+export const router = createHashRouter([
     {
         path: "/",
         element: <Layout />,
@@ -35,12 +34,8 @@ export const router = createBrowserRouter([
             },
            {
                path: "*",
-               element: <div>App 404: Page Not Found in Router</div>,
+               element: <div className="flex justify-center items-center h-full text-2xl font-bold">404: Page Not Found</div>,
            }
        ]
    }
-],
-
-{ basename: basename }
-
-);
+]);

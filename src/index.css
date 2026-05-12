@@ -4,3 +4,9 @@ html {
   scroll-behavior: smooth;
 }
 
+
+.swiper-pagination.swiper-pagination-bullets {
+    position: relative !important;
+    bottom: auto !important;
+    margin-top: 24px !important;
+}
