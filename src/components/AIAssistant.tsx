@@ -32,7 +32,7 @@ const AIAssistant: React.FC = () => {
     try {
       const response = await sendMessageToAI(userMessage, messages);
       setMessages(prev => [...prev, { text: response, isUser: false }]);
-    } catch (error: any) {
+    } catch {
       setMessages(prev => [ ...prev, { text: `[Error Sys]: API currently unavailable. Please contact Omar through another channel.`, isUser: false } ]);
     } finally {
       setIsLoading(false);

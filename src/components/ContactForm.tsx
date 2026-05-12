@@ -39,11 +39,13 @@ const ContactForm: React.FC = () => {
       setSubmitSuccess(true);
       setFormData({ name: '', email: '', message: '' });
 
-    } catch (error: any) {
-      console.error('Error sending message:', error.message);
+    } catch (error: unknown) {
+      const errorMessage = error instanceof Error ? error.message : 'Unknown error';
+      console.error('Error sending message:', errorMessage);
       setSubmitMessage("There was an error sending your message. Please try again.");
       setSubmitSuccess(false);
-    } finally {
+    }
+      finally {
       setIsSubmitting(false);
     }
   };
