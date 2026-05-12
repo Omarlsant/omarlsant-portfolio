@@ -17,6 +17,16 @@ export const projectsData: Project[] = [
         {
         id: 'ai-1',
         category: 'AI Developer',
+        title: 'Content GenerAItor',
+        description: 'Full-stack AI platform for creative content generation and document-based factual research.',
+        technologies: ['Python', 'Dash', 'Flask', 'Supabase', 'Docker', 'Docker-compose', 'Gemini', 'LLM', 'API', 'Git', 'Github'],
+        detailedDescription: `A full-stack application designed to explore and demonstrate the capabilities of Large Language Models (LLMs) and modern AI patterns. It features specialized AI agents for diverse tasks, ranging from creative content generation to factual, document-based research.`,
+        repoUrl: 'https://github.com/Omarlsant/p-XI-llm-content-generator',
+        type: 'Individual'
+    },
+    {
+        id: 'ai-2',
+        category: 'AI Developer',
         title: 'Keep in Shape',
         description: 'Predicting the BMI and type of obesity using machine learning.',
         technologies: ['Python', 'Dash', 'Flask', 'Supabase', 'Docker', 'Docker-compose', 'Jupyter Notebook', 'Pandas', 'Scikit-learn', 'Git', 'Github'],
@@ -25,7 +35,7 @@ export const projectsData: Project[] = [
         type: 'Group'
     },
     {
-        id: 'ai-2',
+        id: 'ai-3',
         category: 'AI Developer',
         title: 'Flight Satisfaction Prediction',
         description: 'Predicting flight satisfaction using machine learning (Kaggle dataset).',
@@ -35,7 +45,7 @@ export const projectsData: Project[] = [
         type: 'Group'
     },
     {
-        id: 'ai-3',
+        id: 'ai-4',
         category: 'AI Developer',
         title: 'Housing Price Prediction',
         description: 'RESTful API and simple UI with Flask to predict housing values (California Housing dataset).',
@@ -45,7 +55,7 @@ export const projectsData: Project[] = [
         type: 'Group'
     },
     {
-        id: 'ai-4',
+        id: 'ai-5',
         category: 'AI Developer',
         title: 'EDA: Global and Regional Migration',
         description: 'Exploratory Data Analysis (EDA) on global and regional migration patterns (focus on LatAm).',
@@ -55,7 +65,7 @@ export const projectsData: Project[] = [
         type: 'Group'
     },
     {
-        id: 'ai-5',
+        id: 'ai-6',
         category: 'AI Developer',
         title: 'EDA: Synthetic Stock Market Data',
         description: 'Exploratory Data Analysis (EDA) on a synthetic stock market dataset.',
@@ -65,7 +75,7 @@ export const projectsData: Project[] = [
         type: 'Individual'
     },
     {
-        id: 'ai-6',
+        id: 'ai-7',
         category: 'AI Developer',
         title: 'Job Scraper (Python)',
         description: 'Web scraping of job offers from InfoJobs using Python and Selenium.',
@@ -75,7 +85,7 @@ export const projectsData: Project[] = [
         type: 'Individual'
     },
     {
-        id: 'ai-7',
+        id: 'ai-8',
         category: 'AI Developer',
         title: 'CRUD App',
         description: 'CRUD application using Python and Django.',
@@ -85,7 +95,7 @@ export const projectsData: Project[] = [
         type: 'Individual'
     },
     {
-        id: 'ai-8',
+        id: 'ai-9',
         category: 'AI Developer',
         title: 'Digital Taximeter (Python)',
         description: 'Digital taximeter application with Tkinter and Docker.',

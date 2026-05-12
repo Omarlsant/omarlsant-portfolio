@@ -1,231 +1,162 @@
+// src/pages/About.tsx
 import React, { useState, useEffect } from 'react';
-import profilePicSrc from '../assets/images/fotoCurso.jpg';
-import googleCertBadge from '../assets/images/google-sc.png';
-import microsoftScBadge from '../assets/images/microsoft-sc.png';
-import microsoftAiBadge from '../assets/images/microsoft-ai.png';
-import pythonCertBadge from '../assets/images/python-ess.png';
+import { aboutData } from '../data/AboutData';
+import profilePicSrc from '../assets/images/photo-omar-lengua.jpg';
 
 const About: React.FC = () => {
-    // State for scroll button remains the same
     const [showScrollButton, setShowScrollButton] = useState(false);
 
-    // Data remains the same
-    const professionalSummary = `Full Stack Developer with one year of experience in web application development, from creation and deployment to continuous maintenance. I integrate my knowledge in AI development to enhance product utility and innovation. My value proposition lies in effectively bridging business requirements with technical execution, ensuring seamless product alignment with strategic objectives.`;
-    const technicalSkills = [
-        { category: 'Languages', skills: ['JavaScript', 'TypeScript', 'Python', 'C'] },
-        { category: 'Frontend', skills: ['React', 'Vite', 'Sass', 'Tailwind CSS', 'npm', 'Css'] },
-        { category: 'Backend', skills: ['Node.js', 'Express', 'Django', 'Flask', 'Fast-Api', 'Rest Api', 'Swagger', 'Postman', 'JWT'] },
-        { category: 'Databases', skills: ['MySQL', 'MongoDB', 'Supabase'] },
-        { category: 'Testing', skills: ['Jest', 'Supertest', 'Pytest', 'Unittest'] },
-        { category: 'DevOps & Tools', skills: ['Docker', 'docker-compose', 'CI/CD (GitHub Actions)', 'Git', 'GitHub'] },
-    ];
-    const softSkills = [
-        'Highly Adaptable', 'Problem Solver', 'Proactive', 'Analytical Thinking',
-        'Time Management', 'Quality-Oriented', 'Effective Communication', 'Team player',
-        'Conflict Resolution', 'Accessibility Awareness (WCAG)',
-    ];
-    const education = [
-        { title: 'AI Developer', institution: 'Factoría F5', dates: 'Jan 2025 - Oct 2025', duration: '9 mth', current: true },
-        { title: 'Full Stack Developer', institution: 'Factoría F5', dates: 'Jun 2024 - Dec 2024', duration: '6 mth' },
-        { title: 'Banking and Finance Management', institution: 'IFB Certus', dates: 'Mar 2015 - Oct 2018', duration: '3 years' }
-    ];
-    const certifications = [
-        { name: 'Cybersecurity of Google', issuer: 'Google (via Coursera)', badgeUrl: googleCertBadge },
-        { name: 'SC-900: Security, Compliance and Identity Fundamentals', issuer: 'Microsoft', badgeUrl: microsoftScBadge },
-        { name: 'AI-900: Azure AI Fundamentals', issuer: 'Microsoft', badgeUrl: microsoftAiBadge },
-        { name: 'Python Essentials 1', issuer: 'Cisco', badgeUrl: pythonCertBadge },
-    ];
-    const experience = [
-        { role: 'Full Stack Developer', company: 'Lima Service Security S.A.C', location: 'Perú', dates: 'Jan 2022 - oct 2022', duration: '(10 mth)',
-          description: ['The company lacked a professional web presence and a structured method for capturing and managing potential client interest. Their capacity to generate new business digitally was limited. Service requests were handled informally, without a system to register them, increasing the risk of lost business opportunities.'], descrip: ["Led the implementation of the project's architecture and technical design in coordination with the CEO.", "Developed and deployed comprehensive full-stack solutions (frontend, backend, and database), leveraging key technologies.", "Ensured continuous application functionality through proactive maintenance and iteratively developed new features, responding to evolving business requirements."], },
-        { role: 'Commercial Assistant', company: 'Snowboarding S.A', location: 'Perú', dates: 'Apr 2018 - feb 2019', duration: '(11 mth)',
-          description: ['Tasked with optimizing regional market performance and streamlining order fulfillment, my core responsibility involved synthesizing raw performance and market data into strategic management reports, and ensuring a seamless end-to-end order processing flow, including logistics coordination, within my assigned territory.',], descrip: ["Generated sales reports, analyzed performance results, sales, market trends, and best-selling products, and presented them to the executives.", "Managed and processed customer orders across my assigned region (retail, distributors, online channels).", "Verified stock availability and coordinated with the logistics department. Updated and maintained the customer database."] }
-    ];
-    const volunteering = {
-        role: 'User Tester', organization: 'Fundación Telefónica', dates: 'Nov 2024 (8h)', platforms: 'Marte & Saturno',
-        description: 'In a two-day engagement, including an onboarding meeting and a final group meeting, I tested and reviewed two iterations of their platform. As a frontend developer, I leveraged my expertise to identify and document critical bugs across both versions, providing actionable feedback that directly contributed to improvements in the platform performance and usability.',
-    };
-    const languages = [
-        { lang: 'Spanish', level: 'Native' },
-        { lang: 'English', level: 'Intermediate B2' },
-        { lang: 'Italian', level: 'Basic' },
-    ];
-
-    // Scroll logic remains the same
     useEffect(() => {
-        const checkScrollTop = () => {
-            if (!showScrollButton && window.scrollY > 400) {
-                setShowScrollButton(true);
-            } else if (showScrollButton && window.scrollY <= 400) {
-                setShowScrollButton(false);
-            }
-        };
+        const checkScrollTop = () => { setShowScrollButton(window.scrollY > 400); };
         window.addEventListener('scroll', checkScrollTop);
         return () => window.removeEventListener('scroll', checkScrollTop);
-    }, [showScrollButton]);
+    }, []);
 
-    const scrollToTop = () => {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-    };
+    const scrollToTop = () => window.scrollTo({ top: 0, behavior: 'smooth' });
 
-    // Updated Skill Badge Renderer
-    const renderSkillBadge = (skill: string, index: number) => (
-        <span key={index} className="inline-block bg-cyan-400/10 text-cyan-300 text-sm font-medium px-3 py-1 rounded-full border border-cyan-500/30">
-            {skill}
-        </span>
-    );
-
-    // Card Container Base Styles (applied via @apply potentially, or repeated)
-    const cardBaseStyles = "bg-slate-800/50 backdrop-blur-sm border border-slate-700/30 rounded-lg shadow-lg p-6";
-    const sectionCardBaseStyles = "bg-slate-800/50 backdrop-blur-sm border border-slate-700/30 rounded-lg shadow-lg p-4"; // Slightly less padding for list items
+    // Estilos genéricos refactorizados (Light theme)
+    const cardBaseStyles = "bg-white border border-slate-200 rounded-2xl shadow-xl shadow-slate-200/40 p-6 sm:p-8 hover:border-sky-200 transition-colors duration-300";
+    const sectionCardBaseStyles = "bg-slate-50 border border-slate-200 rounded-xl p-5 sm:p-6 mb-6";
 
     return (
-        // Updated main section styles - assuming dark background from layout
-        <section id="about" className="py-16 md:py-24 text-slate-200 relative"> {/* Base text color */}
-            <div className="container mx-auto px-4 md:px-8 max-w-4xl">
-                {/* Profile Picture - Updated border */}
-                <div className="flex justify-center mb-10">
+        <section id="about" className="py-16 md:py-24 text-slate-800 bg-slate-50">
+            <div className="container mx-auto px-4 md:px-8 max-w-5xl">
+                
+                {/* Header (Pic + Título) */}
+                <div className="flex flex-col items-center mb-16 mt-4">
                     <img
-                        src= {profilePicSrc}
-                        alt="profile-pic"
-                        className="w-32 h-32 sm:w-36 sm:h-36 md:w-40 md:h-40 lg:w-48 lg:h-48 rounded-full object-cover border-4 border-cyan-400 shadow-lg" // Updated border color
+                        src={profilePicSrc}
+                        alt="Omar Lengua - Full Stack Developer"
+                        className="w-40 h-40 md:w-48 md:h-48 rounded-full object-cover border-4 border-white shadow-xl shadow-slate-300/50 mb-8" 
                     />
+                    <h2 className="text-4xl lg:text-5xl font-extrabold text-slate-900 mb-6">
+                        About Me
+                    </h2>
+                    
+                    <div className={`${cardBaseStyles} w-full max-w-4xl text-justify`}>
+                        <p className="text-lg leading-relaxed text-slate-600">
+                            {aboutData.professionalSummary}
+                        </p>
+                    </div>
                 </div>
 
-                {/* Section Title - Gradient like projects */}
-                <h2 className="text-4xl lg:text-5xl font-bold text-center mb-12 text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">
-                    About Me
-                </h2>
-
-                {/* Professional Summary - Updated card styles */}
-                <div className={`${cardBaseStyles} text-center mb-12`}>
-                    <h3 className="text-2xl font-semibold mb-4 text-cyan-400">Summary</h3>
-                    <p className="text-base md:text-md leading-relaxed text-slate-300 text-justify mb-2">
-                        {professionalSummary}
-                    </p>
-                </div>
-
-                {/* Previous Experience Section */}
-                <div className="mb-12">
-                     <h3 className="text-3xl font-bold mb-6 text-center text-slate-100">Professional Experience</h3>
-                     {experience.map((exp, index) => (
-                            // Updated section card styles & different border color
-                            <div key={index} className={`${sectionCardBaseStyles} border-l-4 border-slate-500 mb-6`}>
-                                <h4 className="text-lg font-semibold text-slate-100">{exp.role} - {exp.company} ({exp.location})</h4>
-                                <p className="text-sm text-slate-400 mt-2">{exp.dates} {exp.duration}</p>
-                                <p className="text-sm text-slate-400 mt-2">{exp.description}</p>
-                                <ul className="list-disc list-inside mt-2 text-slate-300 text-sm space-y-1">
+                {/* Professional Experience Section */}
+                <div className="mb-16">
+                     <h3 className="text-3xl font-bold mb-8 text-center text-slate-900">Professional Experience</h3>
+                     {aboutData.experience.map((exp, index) => (
+                            <div key={index} className={`${sectionCardBaseStyles} border-l-4 border-l-slate-400`}>
+                                <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-2">
+                                    <h4 className="text-xl font-bold text-slate-900">{exp.role} <span className="text-sky-600 font-semibold text-lg">@ {exp.company}</span></h4>
+                                    <span className="text-sm font-semibold bg-slate-200 text-slate-600 px-3 py-1 rounded-full w-fit mt-2 sm:mt-0">{exp.dates} {exp.duration}</span>
+                                </div>
+                                <p className="text-sm font-medium text-slate-500 mb-4 uppercase tracking-wider">{exp.location}</p>
+                                <p className="text-base text-slate-700 leading-relaxed mb-4">{exp.description}</p>
+                                <ul className="list-disc list-outside ml-5 text-slate-600 text-base space-y-2">
                                     {exp.descrip?.map((item, i) => <li key={i}>{item}</li>)}
                                 </ul>
                             </div>
                         ))}
                  </div>
 
-                  {/* Education Section */}
-                 <div className="mb-12">
-                    <h3 className="text-3xl font-bold mb-6 text-center text-slate-100">Education</h3>
-                     <div className="space-y-6">
-                        {education.map((edu, index) => (
-                            // Updated section card styles & border
-                            <div key={index} className={`${sectionCardBaseStyles} border-l-4 border-cyan-500`}>
-                                <h4 className="text-lg font-semibold text-slate-100">{edu.title} {edu.current && <span className="text-xs bg-blue-500/80 text-white px-2 py-0.5 rounded-full ml-2 align-middle">In progress</span>}</h4>
-                                <p className="text-md text-slate-300">{edu.institution}</p>
-                                <p className="text-sm text-slate-400">{edu.dates} {edu.duration && `(${edu.duration})`}</p>
-                            </div>
-                        ))}
-                    </div>
-                </div>
-
-                 {/* Skills Section */}
-                 <div className="mb-12">
-                    <h3 className="text-3xl font-bold mb-8 text-center text-slate-100">Skills</h3>
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                        {/* Technical Skills - Updated card styles */}
+                  {/* Skills Grid */}
+                 <div className="mb-16">
+                    <h3 className="text-3xl font-bold mb-8 text-center text-slate-900">Capabilities</h3>
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
                         <div className={cardBaseStyles}>
-                            <h4 className="text-xl font-semibold mb-4 text-cyan-400">Technical</h4>
-                            {technicalSkills.map((categoryData, index) => (
-                                <div key={index} className="mb-4 last:mb-0">
-                                    <h5 className="font-semibold text-slate-300 mb-2">{categoryData.category}</h5>
-                                    <div className="flex flex-wrap gap-2"> {/* Added gap */}
-                                        {categoryData.skills.map(renderSkillBadge)}
+                            <h4 className="text-2xl font-bold mb-6 text-sky-600 border-b border-slate-100 pb-4">Technical Stack</h4>
+                            {aboutData.technicalSkills.map((cat, index) => (
+                                <div key={index} className="mb-6 last:mb-0">
+                                    <h5 className="font-bold text-slate-800 mb-3">{cat.category}</h5>
+                                    <div className="flex flex-wrap gap-2">
+                                        {cat.skills.map((skill, i) => (
+                                            <span key={i} className="bg-sky-50 text-sky-700 text-sm font-semibold px-3 py-1.5 rounded-lg border border-sky-100">{skill}</span>
+                                        ))}
                                     </div>
                                 </div>
                             ))}
                         </div>
-                        {/* Soft Skills - Updated card styles */}
                         <div className={cardBaseStyles}>
-                            <h4 className="text-xl font-semibold mb-4 text-cyan-400">Soft</h4>
-                            <ul className="list-disc list-inside space-y-1 text-slate-300">
-                                {softSkills.map((skill, index) => (
-                                    <li key={index}>{skill}</li>
+                            <h4 className="text-2xl font-bold mb-6 text-sky-600 border-b border-slate-100 pb-4">Soft Skills</h4>
+                            <ul className="grid grid-cols-1 gap-y-3 gap-x-2 text-slate-700 font-medium">
+                                {aboutData.softSkills.map((skill, index) => (
+                                    <li key={index} className="flex items-center gap-2">
+                                        <span className="w-1.5 h-1.5 bg-sky-500 rounded-full block"></span>{skill}
+                                    </li>
                                 ))}
                             </ul>
                         </div>
                     </div>
                 </div>
 
-                {/* Certifications Section */}
-                <div className="mb-12">
-                    <h3 className="text-3xl font-bold mb-6 text-center text-slate-100">Certifications</h3>
-                    <p className="mt-4 text-center text-slate-400 italic mb-4">You can verify my certifications via Credly.</p>
-                    <div className="space-y-4">
-                        {certifications.map((cert, index) => (
-                             // Updated section card styles & border
-                            <div key={index} className={`${sectionCardBaseStyles} border-l-4 border-cyan-500 flex flex-col sm:flex-row sm:items-center justify-between`}>
-                                <div className="mb-4 sm:mb-0 sm:mr-4 flex-grow">
-                                    <h4 className="text-lg font-semibold text-slate-100">{cert.name}</h4>
-                                    <p className="text-md text-slate-300">Issued by: {cert.issuer}</p>
+                {/* Education & Certs */}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+                    <div>
+                        <h3 className="text-3xl font-bold mb-8 text-slate-900 text-center md:text-left">Education</h3>
+                        <div className="space-y-4">
+                            {aboutData.education.map((edu, index) => (
+                                <div key={index} className={`${sectionCardBaseStyles} border-l-4 border-l-sky-500`}>
+                                    <h4 className="text-lg font-bold text-slate-900 mb-1">{edu.title} {edu.current && <span className="text-xs bg-sky-100 text-sky-700 font-bold px-2 py-0.5 rounded ml-2 uppercase tracking-wide">Ongoing</span>}</h4>
+                                    <p className="text-md text-sky-700 font-semibold mb-1">{edu.institution}</p>
+                                    <p className="text-sm font-medium text-slate-500">{edu.dates}</p>
                                 </div>
-                                {cert.badgeUrl && (
-                                    // Added background for better visibility if badge is transparent
-                                    <div className="p-1 rounded flex-shrink-0 mx-auto sm:mx-0 w-20 h-20 flex items-center justify-center">
-                                        <img
-                                            src={cert.badgeUrl}
-                                            alt={`${cert.name} Badge`}
-                                            className="max-w-full max-h-full object-contain"
-                                        />
+                            ))}
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <h3 className="text-3xl font-bold mb-8 text-slate-900 text-center md:text-left">Certifications</h3>
+                        <div className="space-y-4">
+                            {aboutData.certifications.map((cert, index) => (
+                                <div key={index} className={`${sectionCardBaseStyles} border-l-4 border-l-sky-500 flex items-center justify-between`}>
+                                    <div className="flex-grow pr-4">
+                                        <h4 className="text-base font-bold text-slate-900 leading-tight mb-1">{cert.name}</h4>
+                                        <p className="text-sm font-medium text-slate-500">{cert.issuer}</p>
                                     </div>
-                                )}
-                            </div>
-                        ))}
+                                    {cert.badgeUrl && (
+                                        <div className="flex-shrink-0 w-16 h-16 sm:w-20 sm:h-20 flex items-center justify-center p-1">
+                                            <img src={cert.badgeUrl} alt={cert.name} className="w-full h-full object-contain mix-blend-multiply" />
+                                        </div>
+                                    )}
+                                </div>
+                            ))}
+                        </div>
                     </div>
                 </div>
 
-                {/* Volunteering Section */}
-                <div className="mb-12">
-                     <h3 className="text-3xl font-bold mb-6 text-center text-slate-100">Volunteering</h3>
-                     <div className={`${sectionCardBaseStyles} border-l-4 border-blue-500`}>
-                         <h4 className="text-lg font-semibold text-slate-100">{volunteering.role} - {volunteering.organization}</h4>
-                         <p className="text-sm text-slate-400">{volunteering.dates}</p>
-                         <p className="mt-2 text-slate-300 text-justify">{volunteering.description} (Platforms: {volunteering.platforms})</p>
+                {/* Footer Grids */}
+                <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                    <div className="lg:col-span-2">
+                        <h3 className="text-2xl font-bold mb-6 text-slate-900">Volunteering</h3>
+                        <div className={`${sectionCardBaseStyles} border-l-4 border-l-indigo-400 h-[calc(100%-4rem)]`}>
+                            <h4 className="text-xl font-bold text-slate-900 mb-1">{aboutData.volunteering.role}</h4>
+                            <p className="text-sm font-semibold text-indigo-600 mb-4">{aboutData.volunteering.organization} | {aboutData.volunteering.dates}</p>
+                            <p className="text-slate-600 leading-relaxed mb-4">{aboutData.volunteering.description}</p>
+                            <p className="text-sm font-semibold text-slate-500">Tested Platforms: <span className="text-slate-800">{aboutData.volunteering.platforms}</span></p>
+                        </div>
+                    </div>
+
+                    <div className="lg:col-span-1">
+                        <h3 className="text-2xl font-bold mb-6 text-slate-900">Languages</h3>
+                        <div className="space-y-4">
+                            {aboutData.languages.map((lang, index) => (
+                                <div key={index} className="flex justify-between items-center bg-white border border-slate-200 rounded-xl px-5 py-4 shadow-sm">
+                                    <span className="font-bold text-slate-800">{lang.lang}</span>
+                                    <span className="text-sm font-bold text-sky-600 bg-sky-50 px-3 py-1 rounded-md">{lang.level}</span>
+                                </div>
+                            ))}
+                        </div>
                     </div>
                 </div>
 
-                {/* Languages Section */}
-                <div className="mb-12">
-                    <h3 className="text-3xl font-bold mb-6 text-center text-slate-100">Languages</h3>
-                    <div className="flex justify-center flex-wrap gap-4">
-                        {languages.map((lang, index) => (
-                            // Updated language box styles
-                            <div key={index} className={`${sectionCardBaseStyles} text-center px-4 py-2 w-32`}> {/* Fixed width */}
-                                <p className="font-medium text-slate-100">{lang.lang}</p>
-                                <p className="text-sm text-slate-400">{lang.level}</p>
-                            </div>
-                        ))}
-                    </div>
-                </div>
             </div>
 
-            {/* Scroll to Top Button - Updated colors */}
             {showScrollButton && (
                 <button
                     onClick={scrollToTop}
-                    aria-label="Scroll to top"
-                    className={`fixed bottom-5 right-5 p-3 rounded-full bg-cyan-600 text-white shadow-lg hover:bg-cyan-700 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 focus:ring-offset-slate-900 transition-all duration-300 ${ // Adjusted offset color
-                        showScrollButton ? 'opacity-100 scale-100' : 'opacity-0 scale-90'
+                    className={`fixed bottom-5 right-[100px] sm:right-[110px] p-3 rounded-full bg-slate-900 text-white shadow-xl hover:bg-slate-800 transition-all duration-300 z-40 ${
+                        showScrollButton ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
                     }`}
                 >
-                    {/* Arrow Icon */}
                     <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                         <path strokeLinecap="round" strokeLinejoin="round" d="M5 15l7-7 7 7" />
                     </svg>
