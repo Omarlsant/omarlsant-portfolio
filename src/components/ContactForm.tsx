@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { supabase } from '../supabaseClient'; // Nuestra nueva conexión
+import { supabase } from '../supabaseClient';
 
 interface FormData {
   name: string;
@@ -25,7 +25,6 @@ const ContactForm: React.FC = () => {
     setSubmitSuccess(null);
 
     try {
-      // Magia de backend: insertando el contacto en base de datos real
       const { error } = await supabase
         .from('contacts')
         .insert([{ 

@@ -9,6 +9,7 @@ const navigationLinks: FooterLink[] = [
   { label: 'Home', href: '/' },
   { label: 'About me', href: '/about' },
   { label: 'Projects', href: '/projects' },
+  { label: 'Contact', href: '/contact' }
 ];
 
 const socialLinks: FooterLink[] = [

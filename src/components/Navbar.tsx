@@ -6,7 +6,8 @@ import { FaBars, FaTimes } from 'react-icons/fa';
 const navLinks = [
   { name: 'Home', path: '/' },
   { name: 'About me', path: '/about' },
-  { name: 'Projects', path: '/projects' }
+  { name: 'Projects', path: '/projects' },
+  { name: 'Contact', path: '/contact' }
 ];
 
 const scrollToTop = () => window.scrollTo({ top: 0, behavior: 'smooth' });
