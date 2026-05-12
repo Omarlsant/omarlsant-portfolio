@@ -1,7 +1,6 @@
 import { projectsData } from '../data/ProjectsData';
 
 const API_KEY = import.meta.env.VITE_GEMINI_API_KEY;
-// Usamos exclusivamente la regla maestra de sistema que acabamos de crear
 const SYSTEM_PROMPT = import.meta.env.VITE_AI_SYSTEM_PROMPT;
 
 export interface ChatMessage {
@@ -25,7 +24,6 @@ export const sendMessageToAI = async (query: string, history: ChatMessage[]): Pr
   const historyText = history.map(m => `${m.isUser ? 'User' : 'Assistant'}: ${m.text}`).join('\n');
   const contextData = generateProjectsContext();
 
-  // El contexto ahora es neutro (inglés) para no condicionar las respuestas a español.
   const fullPrompt = `
 [CORE DIRECTIVES]
 ${SYSTEM_PROMPT}
