@@ -1,0 +1,19 @@
+name: Code Quality Check
+
+on:
+  push:
+    branches: ["*"]
+  pull_request:
+    branches: [main, dev]
+
+jobs:
+  lint-and-typecheck:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - run: npm install
+      - run: npm run lint
+      - run: npx tsc --noEmit
