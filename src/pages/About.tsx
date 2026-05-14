@@ -1,4 +1,3 @@
-// src/pages/About.tsx
 import React, { useState, useEffect } from 'react';
 import { aboutData } from '../data/AboutData';
 import profilePicSrc from '../assets/images/photo-omar-lengua.jpg';
@@ -14,7 +13,6 @@ const About: React.FC = () => {
 
     const scrollToTop = () => window.scrollTo({ top: 0, behavior: 'smooth' });
 
-    // Estilos genéricos refactorizados (Light theme)
     const cardBaseStyles = "bg-white border border-slate-200 rounded-2xl shadow-xl shadow-slate-200/40 p-6 sm:p-8 hover:border-sky-200 transition-colors duration-300";
     const sectionCardBaseStyles = "bg-slate-50 border border-slate-200 rounded-xl p-5 sm:p-6 mb-6";
 
@@ -22,7 +20,7 @@ const About: React.FC = () => {
         <section id="about" className="py-16 md:py-24 text-slate-800 bg-slate-50">
             <div className="container mx-auto px-4 md:px-8 max-w-5xl">
                 
-                {/* Header (Pic + Título) */}
+                {/* Header */}
                 <div className="flex flex-col items-center mb-16 mt-4">
                     <img
                         src={profilePicSrc}
@@ -40,7 +38,7 @@ const About: React.FC = () => {
                     </div>
                 </div>
 
-                {/* Professional Experience Section */}
+                {/* Professional Experience */}
                 <div className="mb-16">
                      <h3 className="text-3xl font-bold mb-8 text-center text-slate-900">Professional Experience</h3>
                      {aboutData.experience.map((exp, index) => (
@@ -77,10 +75,11 @@ const About: React.FC = () => {
                         </div>
                         <div className={cardBaseStyles}>
                             <h4 className="text-2xl font-bold mb-6 text-sky-600 border-b border-slate-100 pb-4">Soft Skills</h4>
-                            <ul className="grid grid-cols-1 gap-y-3 gap-x-2 text-slate-700 font-medium">
+                            <ul className="grid grid-cols-1 gap-y-5 gap-x-2 text-slate-700 font-medium">
                                 {aboutData.softSkills.map((skill, index) => (
-                                    <li key={index} className="flex items-center gap-2">
-                                        <span className="w-1.5 h-1.5 bg-sky-500 rounded-full block"></span>{skill}
+                                    <li key={index} className="flex text-justify items-start gap-2">
+                                        <span className="w-1.5 h-1.5 bg-sky-500 rounded-full block mt-2 flex-shrink-0"></span>
+                                        {skill}
                                     </li>
                                 ))}
                             </ul>
