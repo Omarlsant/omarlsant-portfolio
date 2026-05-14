@@ -1,4 +1,3 @@
-// src/data/AboutData.ts
 import googleCertBadge from '../assets/images/google-sc.png';
 import microsoftScBadge from '../assets/images/microsoft-sc.png';
 import microsoftAiBadge from '../assets/images/microsoft-ai.png';

@@ -1,4 +1,3 @@
-// src/pages/Projects.tsx
 import React, { useState, useEffect } from 'react';
 import { projectsData, Project } from '../data/ProjectsData';
 import ProjectCard from '../components/ProjectsCard';
@@ -9,6 +8,7 @@ const ProjectsPage: React.FC = () => {
     const [selectedProject, setSelectedProject] = useState<Project | null>(null);
     
     const aiProjects = projectsData.filter(p => p.category === 'AI Developer');
+    const dataAnalystProjects = projectsData.filter(p => p.category === 'Data Analyst');
     const fullStackProjects = projectsData.filter(p => p.category === 'Full Stack Developer');
 
     const handleOpenDetails = (project: Project) => {
@@ -50,9 +50,6 @@ const ProjectsPage: React.FC = () => {
     return (
         <div className="container mx-auto max-w-6xl px-4 py-16 sm:py-24">
             <header className="text-center mb-16">
-                <div className="inline-block px-4 py-1.5 mb-6 rounded-full bg-slate-100 border border-slate-200 text-slate-700 text-sm font-semibold tracking-wide shadow-sm">
-                    Interactive Portfolio
-                </div>
                 <h1 className="text-4xl lg:text-5xl font-extrabold text-slate-900 mb-6 tracking-tight">
                     My Architecture & Projects
                 </h1>
@@ -63,6 +60,7 @@ const ProjectsPage: React.FC = () => {
 
             <main>
                 {renderCategorySection('Developer', aiProjects, 'AI')}
+                {renderCategorySection('Developer', dataAnalystProjects, 'Data Analyst')}
                 {renderCategorySection('Developer', fullStackProjects, 'Full Stack')}
             </main>
 
