@@ -1,4 +1,4 @@
-export type ProjectCategory = 'AI Developer' | 'Full Stack Developer';
+export type ProjectCategory = 'AI Developer' | 'Full Stack Developer' | 'Data Analyst';
 export type ProjectType = 'Group' | 'Individual';
 
 export interface Project {
@@ -13,7 +13,6 @@ export interface Project {
 }
 
 export const projectsData: Project[] = [
-    // === AI Developer Projects ===
         {
         id: 'ai-1',
         category: 'AI Developer',
@@ -55,26 +54,6 @@ export const projectsData: Project[] = [
         type: 'Group'
     },
     {
-        id: 'ai-5',
-        category: 'AI Developer',
-        title: 'EDA: Global and Regional Migration',
-        description: 'Exploratory Data Analysis (EDA) on global and regional migration patterns (focus on LatAm).',
-        technologies: ['Python', 'Jupyter Notebook', 'Pandas', 'NumPy', 'Matplotlib', 'Seaborn', 'Git', 'Github'],
-        detailedDescription: `An exhaustive Exploratory Data Analysis (EDA) was performed on global and regional migration patterns, with a particular focus on Latin America. Using World Bank data and tools like Pandas and Matplotlib/Seaborn in Python, the study analyzes the potential causes (economic, social, political) and demographic effects of migration flows in different countries and regions, aiming to identify significant trends and correlations.`,
-        repoUrl: 'https://github.com/Bootcamp-IA-P4/world-population-migration-eda',
-        type: 'Group'
-    },
-    {
-        id: 'ai-6',
-        category: 'AI Developer',
-        title: 'EDA: Synthetic Stock Market Data',
-        description: 'Exploratory Data Analysis (EDA) on a synthetic stock market dataset.',
-        technologies: ['Python', 'Jupyter Notebook', 'Pandas', 'NumPy', 'Matplotlib', 'Seaborn', 'SciPy', 'Git', 'Github'],
-        detailedDescription: `This repository contains the code and findings of an Exploratory Data Analysis (EDA) performed on the synthetic_stock_data.csv dataset. The main objective was to understand the structure, quality, characteristics, and relationships within the data (distributions, correlations, outliers), using Python and libraries like Pandas, NumPy, Matplotlib, Seaborn, and SciPy. This analysis serves as a fundamental basis for potential deeper analyses or the development of predictive models.`,
-        repoUrl: 'https://github.com/Bootcamp-IA-P4/stock-market-eda',
-        type: 'Individual'
-    },
-    {
         id: 'ai-7',
         category: 'AI Developer',
         title: 'Job Scraper (Python)',
@@ -104,6 +83,27 @@ export const projectsData: Project[] = [
         repoUrl: 'https://github.com/Omarlsant/app-taximetro',
         type: 'Individual'
     },
+    {
+        id: 'da-1',
+        category: 'Data Analyst',
+        title: 'EDA: Global and Regional Migration',
+        description: 'Exploratory Data Analysis (EDA) on global and regional migration patterns (focus on LatAm).',
+        technologies: ['Python', 'Jupyter Notebook', 'Pandas', 'NumPy', 'Matplotlib', 'Seaborn', 'Git', 'Github'],
+        detailedDescription: `An exhaustive Exploratory Data Analysis (EDA) was performed on global and regional migration patterns, with a particular focus on Latin America. Using World Bank data and tools like Pandas and Matplotlib/Seaborn in Python, the study analyzes the potential causes (economic, social, political) and demographic effects of migration flows in different countries and regions, aiming to identify significant trends and correlations.`,
+        repoUrl: 'https://github.com/Bootcamp-IA-P4/world-population-migration-eda',
+        type: 'Group'
+    },
+    {
+        id: 'da-2',
+        category: 'Data Analyst',
+        title: 'EDA: Synthetic Stock Market Data',
+        description: 'Exploratory Data Analysis (EDA) on a synthetic stock market dataset.',
+        technologies: ['Python', 'Jupyter Notebook', 'Pandas', 'NumPy', 'Matplotlib', 'Seaborn', 'SciPy', 'Git', 'Github'],
+        detailedDescription: `This repository contains the code and findings of an Exploratory Data Analysis (EDA) performed on the synthetic_stock_data.csv dataset. The main objective was to understand the structure, quality, characteristics, and relationships within the data (distributions, correlations, outliers), using Python and libraries like Pandas, NumPy, Matplotlib, Seaborn, and SciPy. This analysis serves as a fundamental basis for potential deeper analyses or the development of predictive models.`,
+        repoUrl: 'https://github.com/Bootcamp-IA-P4/stock-market-eda',
+        type: 'Individual'
+    },
+
     // === Full Stack Developer Projects ===
     {
         id: 'fs-1',
