@@ -23,6 +23,6 @@ dist-ssr
 *.sln
 *.sw?
 
-public/
-.gitignore
+# Environment
 .env
+.env.*
