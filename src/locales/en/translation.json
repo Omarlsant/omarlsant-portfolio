@@ -1,0 +1,117 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About me",
+    "projects": "Projects",
+    "contact": "Contact",
+    "switchToEs": "Cambiar idioma a Español",
+    "switchToEn": "Switch language to English",
+    "openMenu": "Open main menu",
+    "closeMenu": "Close main menu"
+  },
+  "home": {
+    "available": "Available for hiring",
+    "name": "Omar Lengua",
+    "title": "Backend Developer & Data Engineer",
+    "heroDesc": "Backend Developer focused on the Java ecosystem with GenAI, combining a solid technical foundation in Python and real-world experience in business processes. I build robust APIs, data pipelines and intelligent solutions ready for production.",
+    "cards": {
+      "projects": {
+        "title": "My Projects",
+        "desc": "Explore the APIs, ML models and full-stack applications I've engineered."
+      },
+      "about": {
+        "title": "About Me",
+        "desc": "Learn about my journey, technical skills and experience."
+      },
+      "contact": {
+        "title": "Let's Talk",
+        "desc": "Questions or job opportunities? Get in touch."
+      },
+      "explore": "Explore"
+    },
+    "strategy": {
+      "title": "Bridging Code with Strategy",
+      "descPart1": "My goal is to translate technical execution into measurable business success. By combining",
+      "backend": "Backend Development",
+      "descPart2": "with",
+      "dataAi": "Data & AI",
+      "descPart3": "capabilities, I build resilient systems ready for real-world scaling and automation."
+    },
+    "featured": {
+      "title": "Featured Work",
+      "exploreRepo": "Explore Repository",
+      "empty": "No projects to display.",
+      "prevProject": "Previous project",
+      "nextProject": "Next project",
+      "viewCaseStudy": "View Case Study"
+    }
+  },
+  "caseStudy": {
+    "badge": "Technical Deep Dive",
+    "modalTitle": "Engineering Case Study",
+    "problemTitle": "The Problem & Context",
+    "architectureTitle": "Architectural Decisions",
+    "challengeTitle": "Technical Challenge & Solution",
+    "metricsTitle": "Key Outcomes & Learnings",
+    "close": "Close case study modal",
+    "exploreRepo": "Explore Repository"
+  },
+  "about": {
+    "title": "About Me",
+    "experience": "Professional Experience",
+    "capabilities": "Capabilities",
+    "technicalStack": "Technical Stack",
+    "softSkills": "Soft Skills",
+    "education": "Education",
+    "certifications": "Certifications",
+    "volunteering": "Volunteering",
+    "languages": "Languages",
+    "ongoing": "Ongoing",
+    "testedPlatforms": "Tested Platforms"
+  },
+  "projects": {
+    "title": "My Architecture & Projects",
+    "desc": "Explore the solutions I've engineered, spanning from Backend Services and Data Engineering pipelines to Artificial Intelligence models and Full Stack applications.",
+    "categories": {
+      "backendHighlight": "Backend",
+      "backendTitle": "Developer",
+      "aiHighlight": "AI",
+      "aiTitle": "Developer",
+      "dataAnalystHighlight": "Data Analyst",
+      "dataAnalystTitle": "Developer",
+      "fullStackHighlight": "Full Stack",
+      "fullStackTitle": "Developer"
+    },
+    "card": {
+      "moreDetails": "More Details",
+      "watchCode": "Watch Code",
+      "group": "Group",
+      "individual": "Individual",
+      "viewCaseStudy": "View Case Study"
+    },
+    "modal": {
+      "close": "Close modal",
+      "category": "Category",
+      "technologies": "Technologies Used:",
+      "viewCode": "View Code on GitHub"
+    }
+  },
+  "contact": {
+    "title": "Get in Touch",
+    "desc": "Have a question or want to work together? Reach out through any of the channels below.",
+    "location": "Based in Madrid, Spain · Available for immediate start"
+  },
+  "footer": {
+    "navigation": "Navigation",
+    "connect": "Connect",
+    "email": "Email",
+    "location": "Location",
+    "locationValue": "Madrid, Spain",
+    "rights": "All rights reserved."
+  },
+  "common": {
+    "copyEmail": "Copy email",
+    "copied": "Copied!",
+    "toastEmailCopied": "Email copied to clipboard! 📋"
+  }
+}

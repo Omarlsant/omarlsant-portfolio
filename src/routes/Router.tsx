@@ -1,13 +1,15 @@
-import { createHashRouter } from "react-router-dom";
+import { lazy, Suspense } from "react";
+import { createBrowserRouter } from "react-router-dom";
 import Layout from "../layout/Layout";
 import Home from "../pages/Home";
-import About from "../pages/About";
-import Projects from "../pages/Projects";
-import Contact from "../pages/Contact";
+import Loader from "../components/Loader";
 import UnderConstruction from "../components/UnderConstruction";
 
-// Cambiamos createBrowserRouter a createHashRouter para Github Pages
-export const router = createHashRouter([
+const About = lazy(() => import("../pages/About"));
+const Projects = lazy(() => import("../pages/Projects"));
+const Contact = lazy(() => import("../pages/Contact"));
+
+export const router = createBrowserRouter([
     {
         path: "/",
         element: <Layout />,
@@ -18,24 +20,38 @@ export const router = createHashRouter([
             },
             {
                 path: "about",
-                element: <About />,
+                element: (
+                    <Suspense fallback={<Loader />}>
+                        <About />
+                    </Suspense>
+                ),
             },
             {
                 path: "projects",
-                element: <Projects />,
+                element: (
+                    <Suspense fallback={<Loader />}>
+                        <Projects />
+                    </Suspense>
+                ),
             },
             {
                 path: "contact",
-                element: <Contact />,
+                element: (
+                    <Suspense fallback={<Loader />}>
+                        <Contact />
+                    </Suspense>
+                ),
             },
             {
                 path: "in-construction",
                 element: <UnderConstruction />,
             },
-           {
-               path: "*",
-               element: <div className="flex justify-center items-center h-full text-2xl font-bold">404: Page Not Found</div>,
-           }
-       ]
-   }
-]);
+            {
+                path: "*",
+                element: <div className="flex justify-center items-center h-full text-2xl font-bold py-24 text-slate-700">404: Page Not Found</div>,
+            }
+        ]
+    }
+], {
+    basename: "/omarlsant-portfolio"
+});
