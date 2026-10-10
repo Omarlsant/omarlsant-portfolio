@@ -1,38 +1,52 @@
 import React, { useState, useEffect } from 'react';
-import { projectsData, Project } from '../data/ProjectsData';
+import { useTranslation } from 'react-i18next';
+import { getProjectsData, Project } from '../data/ProjectsData';
 import ProjectCard from '../components/ProjectsCard';
 import ProjectDetailModal from '../components/DetailModal';
+import CaseStudyModal from '../components/CaseStudyModal';
 
 const ProjectsPage: React.FC = () => {
+    const { t, i18n } = useTranslation();
     const [showScrollButton, setShowScrollButton] = useState(false);
     const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+    const [selectedCaseStudyProject, setSelectedCaseStudyProject] = useState<Project | null>(null);
     
-    const aiProjects = projectsData.filter(p => p.category === 'AI Developer');
-    const dataAnalystProjects = projectsData.filter(p => p.category === 'Data Analyst');
-    const fullStackProjects = projectsData.filter(p => p.category === 'Full Stack Developer');
+    const projects = getProjectsData(i18n.language);
+
+    const backendProjects = projects.filter(p => p.category === 'Backend Developer');
+    const aiProjects = projects.filter(p => p.category === 'AI Developer');
+    const dataAnalystProjects = projects.filter(p => p.category === 'Data Analyst');
+    const fullStackProjects = projects.filter(p => p.category === 'Full Stack Developer');
 
     const handleOpenDetails = (project: Project) => {
         setSelectedProject(project);
-        document.body.style.overflow = 'hidden';
     };
 
-    const handleCloseModal = () => {
+    const handleCloseDetailsModal = () => {
         setSelectedProject(null);
-        document.body.style.overflow = 'auto';
     };
 
-    const renderCategorySection = (title: string, projects: Project[], highlight: string) => (
+    const handleOpenCaseStudy = (project: Project) => {
+        setSelectedProject(null);
+        setSelectedCaseStudyProject(project);
+    };
+
+    const handleCloseCaseStudy = () => {
+        setSelectedCaseStudyProject(null);
+    };
+
+    const renderCategorySection = (title: string, categoryProjects: Project[], highlight: string) => (
         <div className="mb-16 last:mb-0">
-            {/* Header Rediseñado del Section */}
-            <h2 className="text-2xl sm:text-3xl font-extrabold mb-8 text-slate-900 border-l-[5px] border-sky-500 pl-4 rounded-sm">
-                <span className="text-sky-600 font-black">{highlight}</span> {title.replace(highlight, '').trim()}
+            <h2 className="text-2xl sm:text-3xl font-extrabold mb-8 text-slate-900 border-l-[5px] border-sky-500 pl-4 rounded-xs">
+                <span className="text-sky-600 font-black">{highlight}</span> {title}
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-                {projects.map((project) => (
+                {categoryProjects.map((project) => (
                 <ProjectCard
                     key={project.id}
                     project={project}
                     onDetailsClick={handleOpenDetails}
+                    onCaseStudyClick={handleOpenCaseStudy}
                 />
                 ))}
             </div>
@@ -51,24 +65,35 @@ const ProjectsPage: React.FC = () => {
         <div className="container mx-auto max-w-6xl px-4 py-16 sm:py-24">
             <header className="text-center mb-16">
                 <h1 className="text-4xl lg:text-5xl font-extrabold text-slate-900 mb-6 tracking-tight">
-                    My Architecture & Projects
+                    {t('projects.title')}
                 </h1>
                 <p className="text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed">
-                    Explore the solutions I've engineered, spanning from rigorous Data Analysis pipelines and Artificial Intelligence models to modern Full Stack ecosystem development.
+                    {t('projects.desc')}
                 </p>
             </header>
 
             <main>
-                {renderCategorySection('Developer', aiProjects, 'AI')}
-                {renderCategorySection('Developer', dataAnalystProjects, 'Data Analyst')}
-                {renderCategorySection('Developer', fullStackProjects, 'Full Stack')}
+                {backendProjects.length > 0 && renderCategorySection(t('projects.categories.backendTitle'), backendProjects, t('projects.categories.backendHighlight'))}
+                {renderCategorySection(t('projects.categories.aiTitle'), aiProjects, t('projects.categories.aiHighlight'))}
+                {renderCategorySection(t('projects.categories.dataAnalystTitle'), dataAnalystProjects, t('projects.categories.dataAnalystHighlight'))}
+                {renderCategorySection(t('projects.categories.fullStackTitle'), fullStackProjects, t('projects.categories.fullStackHighlight'))}
             </main>
 
             {selectedProject && (
-                <ProjectDetailModal project={selectedProject} onClose={handleCloseModal} />
+                <ProjectDetailModal
+                    project={selectedProject}
+                    onClose={handleCloseDetailsModal}
+                    onOpenCaseStudy={handleOpenCaseStudy}
+                />
             )}
 
-            {/* Scroll Button Adjust */}
+            {selectedCaseStudyProject && (
+                <CaseStudyModal
+                    project={selectedCaseStudyProject}
+                    onClose={handleCloseCaseStudy}
+                />
+            )}
+
             {showScrollButton && (
                 <button 
                     onClick={scrollToTop} aria-label="Scroll to top" 

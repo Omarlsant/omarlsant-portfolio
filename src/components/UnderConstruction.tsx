@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import constructionImage from '../assets/images/under.png';
+import constructionImage from '../assets/images/under.webp';
 
 const UnderConstruction: React.FC = () => {
     return (
