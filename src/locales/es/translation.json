@@ -1,0 +1,117 @@
+{
+  "nav": {
+    "home": "Inicio",
+    "about": "Sobre mí",
+    "projects": "Proyectos",
+    "contact": "Contacto",
+    "switchToEs": "Cambiar idioma a Español",
+    "switchToEn": "Switch language to English",
+    "openMenu": "Abrir menú principal",
+    "closeMenu": "Cerrar menú principal"
+  },
+  "home": {
+    "available": "Disponible para contratación",
+    "name": "Omar Lengua",
+    "title": "Backend Developer & Data Engineer",
+    "heroDesc": "Desarrollador Backend enfocado en el ecosistema Java con GenAI, combinando una sólida base técnica en Python con experiencia real en procesos de negocio. Construyo APIs robustas, pipelines de datos y soluciones inteligentes listas para producción.",
+    "cards": {
+      "projects": {
+        "title": "Mis Proyectos",
+        "desc": "Explora las APIs, modelos de Machine Learning y aplicaciones Full Stack que he desarrollado."
+      },
+      "about": {
+        "title": "Sobre Mí",
+        "desc": "Conoce mi trayectoria, competencias técnicas y experiencia profesional."
+      },
+      "contact": {
+        "title": "Hablemos",
+        "desc": "¿Preguntas u oportunidades laborales? Ponte en contacto."
+      },
+      "explore": "Explorar"
+    },
+    "strategy": {
+      "title": "Uniendo Código con Estrategia",
+      "descPart1": "Mi objetivo es transformar la ejecución técnica en impacto tangible de negocio. Combinando el",
+      "backend": "Desarrollo Backend",
+      "descPart2": "con capacidades de",
+      "dataAi": "Datos e IA",
+      "descPart3": " para construir sistemas resilientes, preparados para ser escalables y automatizables en entornos reales."
+    },
+    "featured": {
+      "title": "Proyectos Destacados",
+      "exploreRepo": "Explorar Repositorio",
+      "empty": "No hay proyectos para mostrar.",
+      "prevProject": "Proyecto anterior",
+      "nextProject": "Proyecto siguiente",
+      "viewCaseStudy": "Ver Caso de Estudio"
+    }
+  },
+  "caseStudy": {
+    "badge": "Análisis Técnico Profundo",
+    "modalTitle": "Caso de Estudio de Ingeniería",
+    "problemTitle": "El Problema & Contexto",
+    "architectureTitle": "Decisiones de Arquitectura",
+    "challengeTitle": "Desafío Técnico & Solución",
+    "metricsTitle": "Resultados & Aprendizajes",
+    "close": "Cerrar caso de estudio",
+    "exploreRepo": "Explorar Repositorio"
+  },
+  "about": {
+    "title": "Sobre Mí",
+    "experience": "Experiencia Profesional",
+    "capabilities": "Competencias",
+    "technicalStack": "Stack Técnico",
+    "softSkills": "Habilidades Blandas",
+    "education": "Educación",
+    "certifications": "Certificaciones",
+    "volunteering": "Voluntariado",
+    "languages": "Idiomas",
+    "ongoing": "En curso",
+    "testedPlatforms": "Plataformas evaluadas"
+  },
+  "projects": {
+    "title": "Mi Arquitectura y Proyectos",
+    "desc": "Explora las soluciones que he desarrollado, desde Servicios Backend y pipelines de Ingeniería de Datos hasta modelos de Inteligencia Artificial y aplicaciones Full Stack.",
+    "categories": {
+      "backendHighlight": "Backend",
+      "backendTitle": "Developer",
+      "aiHighlight": "AI",
+      "aiTitle": "Developer",
+      "dataAnalystHighlight": "Data Analyst",
+      "dataAnalystTitle": "Developer",
+      "fullStackHighlight": "Full Stack",
+      "fullStackTitle": "Developer"
+    },
+    "card": {
+      "moreDetails": "Más Detalles",
+      "watchCode": "Ver Código",
+      "group": "Grupal",
+      "individual": "Individual",
+      "viewCaseStudy": "Ver Caso de Estudio"
+    },
+    "modal": {
+      "close": "Cerrar modal",
+      "category": "Categoría",
+      "technologies": "Tecnologías Utilizadas:",
+      "viewCode": "Ver Código en GitHub"
+    }
+  },
+  "contact": {
+    "title": "Contáctame",
+    "desc": "¿Tienes alguna consulta o te interesa colaborar? Escríbeme a través de cualquiera de los siguientes canales.",
+    "location": "Ubicado en Madrid, España · Disponibilidad inmediata"
+  },
+  "footer": {
+    "navigation": "Navegación",
+    "connect": "Conectar",
+    "email": "Correo",
+    "location": "Ubicación",
+    "locationValue": "Madrid, España",
+    "rights": "Todos los derechos reservados."
+  },
+  "common": {
+    "copyEmail": "Copiar email",
+    "copied": "¡Copiado!",
+    "toastEmailCopied": "¡Email copiado al portapapeles! 📋"
+  }
+}

@@ -2,16 +2,16 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="icon" type="image/x-icon" href="/omarlsant-portfolio/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Omar Lengua's Portfolio</title>
+    <meta name="description" content="Portfolio of Omar Lengua - Backend Developer focused on Java, GenAI, and Data Engineering." />
+    <title>Omar Lengua | Backend Developer & Data Engineer</title>
     <script type="text/javascript">
       (function() {
-        const redirectPath = sessionStorage.getItem('redirectPath');
-        sessionStorage.removeItem('redirectPath'); 
-        
+        var redirectPath = sessionStorage.getItem('redirectPath');
+        sessionStorage.removeItem('redirectPath');
         if (redirectPath) {
-          window.history.replaceState(null, '', redirectPath);
+          window.history.replaceState(null, '', '/omarlsant-portfolio' + redirectPath);
         }
       })();
     </script>
