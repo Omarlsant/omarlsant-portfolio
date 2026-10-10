@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Redirecting…</title>
+  <script>
+    // GitHub Pages SPA redirect trick
+    // Saves the requested path and redirects to index.html
+    var pathSegmentsToKeep = 1; // Keep '/omarlsant-portfolio'
+    var l = window.location;
+    var repoPath = l.pathname.split('/').slice(0, 1 + pathSegmentsToKeep).join('/');
+    var remainingPath = l.pathname.slice(repoPath.length);
+    sessionStorage.setItem('redirectPath', remainingPath + l.search + l.hash);
+    l.replace(repoPath + '/');
+  </script>
+</head>
+<body>
+</body>
+</html>
