@@ -16,7 +16,7 @@ export interface CarouselProjectItem {
     title: string;
     description: string;
     imageUrl: string;
-    link: string;
+    link?: string;
     project: Project;
 }
 
@@ -30,11 +30,11 @@ const FeaturedProjectsCarousel: React.FC<{ projects: CarouselProjectItem[] }> = 
     return (
         <section className="w-full max-w-6xl mt-16 px-4 sm:px-8 lg:px-12">
             <h2 className="text-3xl font-extrabold text-center mb-10 text-slate-900">{t('home.featured.title')}</h2>
-            
+
             {/* Contenedor relativo que posiciona las flechas al exterior en Desktop y flotantes semitransparentes en Mobile */}
-            <div 
-               className="relative w-full"
-               style={{ '--swiper-pagination-bottom': '0px', '--swiper-theme-color': '#0284c7' } as React.CSSProperties}
+            <div
+                className="relative w-full"
+                style={{ '--swiper-pagination-bottom': '0px', '--swiper-theme-color': '#0284c7' } as React.CSSProperties}
             >
                 <Swiper
                     onBeforeInit={(swiper) => {
@@ -57,8 +57,8 @@ const FeaturedProjectsCarousel: React.FC<{ projects: CarouselProjectItem[] }> = 
                     }}
                 >
                     {projects.map((item) => (
-                        <SwiperSlide 
-                            key={item.id} 
+                        <SwiperSlide
+                            key={item.id}
                             className="bg-white border border-slate-100 rounded-2xl shadow-xl shadow-slate-200/50 overflow-hidden group !w-[300px] sm:!w-[350px] md:!w-[380px]"
                         >
                             <img src={item.imageUrl} alt={item.title} className="w-full h-48 sm:h-56 object-cover object-top border-b border-slate-100 transition-transform duration-500 group-hover:scale-105" />
@@ -67,7 +67,7 @@ const FeaturedProjectsCarousel: React.FC<{ projects: CarouselProjectItem[] }> = 
                                 <p className="text-sm text-slate-600 mb-5 h-16 overflow-y-auto text-ellipsis scrollbar-thin scrollbar-thumb-slate-300 scrollbar-track-transparent">
                                     {item.description}
                                 </p>
-                                
+
                                 <div className="space-y-3 pt-2 border-t border-slate-100 mt-auto">
                                     {item.project.caseStudy && (
                                         <button
