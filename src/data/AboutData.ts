@@ -64,14 +64,14 @@ const certificationsCommon: CertificationItem[] = [
 ];
 
 export const aboutDataEn: AboutDataStructure = {
-  professionalSummary: `Backend Developer focused on the Java ecosystem with GenAI, with a solid technical foundation in Python and a background in Banking and Finance. I bring hands-on experience developing REST APIs, relational database persistence and integration of language models into functional projects, combined with a real understanding of business processes. I am recognized for strong communication skills, problem-solving under pressure, clear functional requirements analysis, and effective teamwork, backed by professional working proficiency in English (B2) for development environments.`,
+  professionalSummary: `AI Software Developer specialized in Python and GenAI applied to product, with a technical foundation in backend development (Java / FastAPI) and an Associate Degree in Banking and Finance. Proven hands-on experience designing RAG architectures, integrating LLMs (Ollama, Gemini Flash) with LangChain and ChromaDB, building REST APIs and containerizing services with Docker. Clear communicator and analytical problem solver with good business understanding, real ownership under pressure, and professional working proficiency in English (B2) for development environments.`,
   technicalSkills: [
     { category: 'Languages', skills: ['Java', 'Python', 'JavaScript', 'TypeScript', 'PHP', 'C'] },
     { category: 'Frontend', skills: ['React', 'Vue.js', 'Vite', 'Tailwind CSS', 'Ionic', 'Sass', 'CSS'] },
     { category: 'Backend', skills: ['Spring / Spring MVC', 'Laravel', 'Flask', 'FastAPI', 'Node.js', 'Express', 'REST APIs', 'Swagger', 'Postman', 'JWT', 'Maven/Gradle'] },
     { category: 'Databases', skills: ['MySQL', 'PostgreSQL', 'MongoDB', 'JPA/Hibernate', 'Sequelize'] },
     { category: 'AI & Data', skills: ['scikit-learn', 'Pandas', 'NumPy', 'LangChain', 'ChromaDB', 'Gemini', 'Ollama'] },
-    { category: 'Cloud & Data Engineering', skills: ['Microsoft Azure', 'Supabase', 'Firebase'] },
+    { category: 'Cloud & Data Engineering', skills: ['Microsoft Azure (Databricks)', 'PySpark', 'ETL/ELT', 'Supabase', 'Firebase'] },
     { category: 'Testing', skills: ['JUnit', 'Jest', 'Supertest', 'Pytest', 'Unittest'] },
     { category: 'DevOps & Tools', skills: ['Docker', 'docker-compose', 'CI/CD (GitHub Actions)', 'Git', 'GitHub'] },
   ],
@@ -82,7 +82,7 @@ export const aboutDataEn: AboutDataStructure = {
     'Accessibility Awareness (WCAG).',
   ],
   education: [
-    { title: 'Master Big Data & Data Engineering', institution: 'Tajamar', dates: 'Sep 2026 - Present', duration: '', current: true },
+    { title: 'Master Big Data & Data Engineering', institution: 'Tajamar Tech', dates: 'Sep 2026 - Present', duration: '', current: true },
     { title: 'Backend Development with Java & GenAI', institution: 'Accenture & CEU San Pablo', dates: 'Sep 2025 - Jun 2026', duration: '(10 mos.)' },
     { title: 'AI Developer (Data Science)', institution: 'Factoría F5', dates: 'Jan 2025 - Sep 2025', duration: '(9 mos.)' },
     { title: 'Full Stack Developer', institution: 'Factoría F5', dates: 'Jun 2024 - Dec 2024', duration: '(6 mos.)' },
@@ -146,14 +146,14 @@ export const aboutDataEn: AboutDataStructure = {
 };
 
 export const aboutDataEs: AboutDataStructure = {
-  professionalSummary: `Desarrollador Backend enfocado en el ecosistema Java con GenAI, con sólida base técnica en Python y formación en Banca y Finanzas. Aporto experiencia práctica en el desarrollo de APIs REST, persistencia en bases de datos relacionales e integración de modelos de lenguaje en proyectos funcionales, combinada con un entendimiento real de procesos de negocio. Destaco por mi excelente capacidad de comunicación, resolución de problemas bajo presión, comprensión de requerimientos funcionales, trabajo en equipo y un nivel de inglés funcional (B2) para entornos de desarrollo.`,
+  professionalSummary: `AI Software Developer especializado en Python y GenAI aplicada a producto, con sólida base técnica en desarrollo backend (Java / FastAPI) y formación en Administración de Banca y Finanzas. Aporto experiencia práctica en arquitecturas RAG, integración de modelos de lenguaje (Ollama, Gemini Flash) con LangChain y ChromaDB, diseño de APIs REST y servicios contenerizados con Docker. Destaco por una excelente capacidad de comunicación, análisis y resolución de problemas bajo presión, con visión de negocio e inglés funcional (B2) para entornos de desarrollo ágiles.`,
   technicalSkills: [
     { category: 'Lenguajes', skills: ['Java', 'Python', 'JavaScript', 'TypeScript', 'PHP', 'C'] },
     { category: 'Frontend', skills: ['React', 'Vue.js', 'Vite', 'Tailwind CSS', 'Ionic', 'Sass', 'CSS'] },
     { category: 'Backend', skills: ['Spring / Spring MVC', 'Laravel', 'Flask', 'FastAPI', 'Node.js', 'Express', 'APIs REST', 'Swagger', 'Postman', 'JWT', 'Maven/Gradle'] },
     { category: 'Bases de Datos', skills: ['MySQL', 'PostgreSQL', 'MongoDB', 'JPA/Hibernate', 'Sequelize'] },
     { category: 'IA & Datos', skills: ['scikit-learn', 'Pandas', 'NumPy', 'LangChain', 'ChromaDB', 'Gemini', 'Ollama'] },
-    { category: 'Cloud & Data Engineering', skills: ['Microsoft Azure', 'Supabase', 'Firebase'] },
+    { category: 'Cloud & Data Engineering', skills: ['Microsoft Azure (Databricks)', 'PySpark', 'ETL/ELT', 'Supabase', 'Firebase'] },
     { category: 'Testing', skills: ['JUnit', 'Jest', 'Supertest', 'Pytest', 'Unittest'] },
     { category: 'DevOps & Herramientas', skills: ['Docker', 'docker-compose', 'CI/CD (GitHub Actions)', 'Git', 'GitHub'] },
   ],
@@ -164,7 +164,7 @@ export const aboutDataEs: AboutDataStructure = {
     'Consciencia de Accesibilidad Web (WCAG).',
   ],
   education: [
-    { title: 'Máster Big Data & Data Engineering', institution: 'Tajamar', dates: 'Sep 2026 - En curso', duration: '', current: true },
+    { title: 'Máster Big Data & Data Engineering', institution: 'Tajamar Tech', dates: 'Sep 2026 - En curso', duration: '', current: true },
     { title: 'Desarrollo Backend con Java y GenAI', institution: 'Accenture & CEU San Pablo', dates: 'Sep 2025 - Jun 2026', duration: '(10 meses)' },
     { title: 'Desarrollador IA (Data Science)', institution: 'Factoría F5', dates: 'Ene 2025 - Sep 2025', duration: '(9 meses)' },
     { title: 'Desarrollador Full Stack', institution: 'Factoría F5', dates: 'Jun 2024 - Dic 2024', duration: '(6 meses)' },

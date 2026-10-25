@@ -22,10 +22,16 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, onDetailsClick, onCa
   return (
     <div className="flex flex-col h-full bg-white border border-slate-200 rounded-2xl shadow-xl shadow-slate-200/50 p-6 sm:p-7 transition-all duration-300 ease-out hover:-translate-y-1 hover:border-sky-300 hover:shadow-sky-100 group">
       
-      <div className="flex justify-between items-start mb-4 gap-2">
+      <div className="flex justify-between items-start mb-2 gap-2">
          <h3 className="text-xl font-bold text-slate-900 group-hover:text-sky-700 transition-colors">{title}</h3>
          <span className={`px-2.5 py-1 rounded-md text-[11px] font-bold tracking-wider uppercase whitespace-nowrap mt-1 ${typeBadgeClasses}`}>
           {typeLabel}
+        </span>
+      </div>
+
+      <div className="mb-3.5">
+        <span className="inline-flex items-center px-2 py-0.5 rounded text-[11px] font-semibold tracking-wide bg-slate-100 text-slate-600 border border-slate-200/60">
+          {project.category}
         </span>
       </div>
 
