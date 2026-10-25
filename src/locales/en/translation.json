@@ -12,12 +12,12 @@
   "home": {
     "available": "Available for hiring",
     "name": "Omar Lengua",
-    "title": "Backend Developer & Data Engineer",
-    "heroDesc": "Backend Developer focused on the Java ecosystem with GenAI, combining a solid technical foundation in Python and real-world experience in business processes. I build robust APIs, data pipelines and intelligent solutions ready for production.",
+    "title": "AI Software Developer",
+    "heroDesc": "Software developer focused on Generative AI applied to product. I build RAG platforms and APIs with Python and FastAPI, integrating language models (LLMs) and semantic search with a solid backend foundation and business understanding.",
     "cards": {
       "projects": {
         "title": "My Projects",
-        "desc": "Explore the APIs, ML models and full-stack applications I've engineered."
+        "desc": "Explore my projects across Data & AI Solutions, Backend Services, and Full Stack applications."
       },
       "about": {
         "title": "About Me",
@@ -31,11 +31,11 @@
     },
     "strategy": {
       "title": "Bridging Code with Strategy",
-      "descPart1": "My goal is to translate technical execution into measurable business success. By combining",
-      "backend": "Backend Development",
+      "descPart1": "My goal is to translate technical execution into measurable business impact. By combining",
+      "backend": "Software Engineering",
       "descPart2": "with",
-      "dataAi": "Data & AI",
-      "descPart3": "capabilities, I build resilient systems ready for real-world scaling and automation."
+      "dataAi": "GenAI & Data",
+      "descPart3": "capabilities, I build intelligent, scalable, product-focused applications."
     },
     "featured": {
       "title": "Featured Work",
@@ -71,16 +71,19 @@
   },
   "projects": {
     "title": "My Architecture & Projects",
-    "desc": "Explore the solutions I've engineered, spanning from Backend Services and Data Engineering pipelines to Artificial Intelligence models and Full Stack applications.",
+    "desc": "Explore the solutions I have engineered, organized across Artificial Intelligence & Data, Enterprise Backend Services, and Full Stack applications.",
     "categories": {
+      "aiSoftwareHighlight": "AI",
+      "aiSoftwareTitle": "Software Developer",
       "backendHighlight": "Backend",
       "backendTitle": "Developer",
-      "aiHighlight": "AI",
-      "aiTitle": "Developer",
-      "dataAnalystHighlight": "Data Analyst",
-      "dataAnalystTitle": "Developer",
       "fullStackHighlight": "Full Stack",
       "fullStackTitle": "Developer"
+    },
+    "subcategories": {
+      "all": "All",
+      "ai": "AI Developer",
+      "dataEngineer": "Data Engineer"
     },
     "card": {
       "moreDetails": "More Details",

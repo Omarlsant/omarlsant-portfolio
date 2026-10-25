@@ -1,4 +1,4 @@
-export type ProjectCategory = 'Backend Developer' | 'AI Developer' | 'Full Stack Developer' | 'Data Analyst';
+export type ProjectCategory = 'Backend Developer' | 'Data Engineer' | 'AI Developer' | 'Full Stack Developer';
 export type ProjectType = 'Group' | 'Individual';
 
 export interface CaseStudy {
@@ -49,28 +49,89 @@ const rawProjects: LocalizedProjectText[] = [
         id: 'be-1',
         category: 'Backend Developer',
         title: 'SpringHotelApp',
-        technologies: ['Java', 'Spring MVC', 'SQL', 'JSP', 'Maven', 'Git', 'Github'],
+        technologies: ['Java', 'Spring MVC', 'Hibernate', 'MySQL', 'JSP', 'Apache Tomcat', 'Git', 'Github'],
+        repoUrl: 'https://github.com/Omarlsant/spring-hotel-app',
         type: 'Group',
         description: {
-            en: 'Web application for hotel management built with Java and Spring MVC.',
-            es: 'Aplicación web para gestión hotelera desarrollada con Java y Spring MVC.',
+            en: 'Web application for hotel management built with Java, Spring MVC, and Hibernate ORM.',
+            es: 'Aplicación web para gestión hotelera desarrollada con Java, Spring MVC e Hibernate ORM.',
         },
         detailedDescription: {
-            en: 'A web application built with Java and Spring MVC for managing rooms, guests and incidents, implementing CRUD operations through controllers, services and DAOs. Integrated SQL database persistence, user authentication, permission control and global exception handling through JSP interfaces.',
-            es: 'Aplicación web desarrollada con Java y Spring MVC para la gestión de habitaciones, huéspedes e incidencias, implementando operaciones CRUD mediante controladores, servicios y DAOs. Integra persistencia en base de datos SQL, autenticación de usuarios, control de permisos y gestión global de excepciones a través de interfaces JSP.',
+            en: 'Enterprise web application deployed on Apache Tomcat for managing rooms, guests, reservations and incidents. Features layered architecture (Controller -> Service -> DAO), Hibernate ORM persistence over MySQL, HttpSession authentication with role-based access control, overbooking prevention, and global exception handling.',
+            es: 'Aplicación web empresarial desplegada en Apache Tomcat para la gestión de habitaciones, huéspedes, reservas e incidencias. Implementa arquitectura por capas (Controlador -> Servicio -> DAO), persistencia ORM con Hibernate sobre MySQL, autenticación con HttpSession y control de acceso por roles, prevención de sobreventa y manejo global de excepciones.',
         },
         caseStudy: {
             en: {
                 problem: 'Hotel operations require strict coordination between room state lifecycles, guest records, and incident tracking with transactional consistency.',
-                architecturalDecision: 'Structured around an enterprise Spring MVC layered architecture (Controller -> Service -> DAO) with Maven dependency lifecycle management to guarantee modular separation of concerns and clear data access layers.',
-                technicalChallenge: 'Maintaining thread-safe state synchronization during concurrent room bookings and designing centralized, robust error handling across database connection pools.',
-                metricsOrLearnings: 'Implemented end-to-end CRUD business workflows with declarative transaction management and global exception interception.',
+                architecturalDecision: 'Structured around an enterprise Spring MVC layered architecture (Controller -> Service -> DAO -> Hibernate / MySQL) deployed on Tomcat 9, with HttpSession session management and role-based access control (receptionist and supervisor).',
+                technicalChallenge: 'Ensuring transactional consistency and room availability validation to prevent overlapping reservations (anti-overbooking), along with a global exception handler avoiding internal SQL trace leakage.',
+                metricsOrLearnings: 'Implemented end-to-end CRUD business workflows with Hibernate ORM relational persistence, show_sql disabled for log security, and server-side business rule validation.',
             },
             es: {
                 problem: 'La gestión hotelera requiere coordinación estricta entre el ciclo de vida de las habitaciones, el registro de huéspedes y el control de incidencias con consistencia transaccional.',
-                architecturalDecision: 'Diseño basado en una arquitectura empresarial por capas en Spring MVC (Controlador -> Servicio -> DAO) con Maven para asegurar separación modular de responsabilidades y capas de persistencia limpias.',
-                technicalChallenge: 'Garantizar sincronización de estado thread-safe ante reservas concurrentes de habitaciones y estructurar un manejo global y centralizado de excepciones sobre pools de conexiones SQL.',
-                metricsOrLearnings: 'Implementación completa del flujo empresarial CRUD con transacciones declarativas y filtros centralizados de validación de negocio.',
+                architecturalDecision: 'Diseño basado en una arquitectura empresarial por capas en Spring MVC (Controlador -> Servicio -> DAO -> Hibernate / MySQL) desplegada en Tomcat 9, con gestión de sesiones HttpSession y control de acceso por roles (recepcionista y supervisor).',
+                technicalChallenge: 'Garantizar la consistencia transaccional y validación de disponibilidad en reservas para evitar solapamientos (anti-overbooking), junto a un manejador global de excepciones que evita la exposición de trazas SQL.',
+                metricsOrLearnings: 'Implementación completa del flujo empresarial CRUD con persistencia relacional ORM en Hibernate, show_sql desactivado para proteger logs y validación de reglas de negocio en el servidor.',
+            },
+        },
+    },
+    {
+        id: 'be-2',
+        category: 'Backend Developer',
+        title: 'App-Comercio',
+        technologies: ['Java 21', 'POO', 'Eclipse Temurin', 'Clean Architecture', 'Git', 'Github'],
+        repoUrl: 'https://github.com/Omarlsant/app-comercio',
+        type: 'Individual',
+        description: {
+            en: 'Console application in Java 21 for product catalog, stock and shopping cart management, built strictly on pure Object-Oriented Programming principles.',
+            es: 'Aplicación de consola en Java 21 para la gestión de productos, inventario y carrito de compras, desarrollada bajo principios puros de Programación Orientada a Objetos.',
+        },
+        detailedDescription: {
+            en: 'Application built with Java 21 standard library (zero external frameworks or libraries) to model a full commercial domain. Implements interface contracts (GestionProductos, GestionClientes), inheritance and polymorphism (Producto, Perecedero, NoPerecedero), automatic stock replenishment, price decoupling in shopping cart via defensive copies, and a pure Java unit test suite.',
+            es: 'Aplicación desarrollada con la biblioteca estándar de Java 21 (sin frameworks ni librerías externas) para modelar un dominio comercial completo. Implementa contratos mediante interfaces (GestionProductos, GestionClientes), herencia y polimorfismo (Producto, Perecedero, NoPerecedero), reposición automática de stock, desacoplamiento de precios en el carrito mediante copias independientes, y una suite de pruebas unitarias puras en Java.',
+        },
+        caseStudy: {
+            en: {
+                problem: 'Model the complete purchasing workflow, dynamic discount calculations, and inventory tracking ensuring immutability and robustness without external dependencies.',
+                architecturalDecision: 'Pure object-oriented architecture separating interface contracts (GestionProductos, GestionClientes) and polymorphic specialization for perishable and non-perishable goods. Defensive line copies in the shopping cart to freeze historical purchase prices.',
+                technicalChallenge: 'Defensive state management and in-memory logic: non-negative stock boundaries, automatic 5-unit restocking on exhaustion, and strict input validation without third-party frameworks.',
+                metricsOrLearnings: 'Pure Java unit testing suite (AppComercioTest) verifying 100% of critical business workflows and validations without JUnit.',
+            },
+            es: {
+                problem: 'Modelar el flujo completo de compras, cálculo de descuentos dinámicos y control de inventario garantizando inmutabilidad y robustez sin recurrir a dependencias externas.',
+                architecturalDecision: 'Diseño orientado a objetos puro con separación de contratos (GestionProductos, GestionClientes) y especialización polimórfica de productos perecederos (descuento según días de caducidad) y no perecederos. Aislamiento de líneas de carrito mediante copias independientes para congelar precios históricos.',
+                technicalChallenge: 'Manejo defensivo de estados y concurrencia lógica en memoria: prevención de stock negativo, reposición automática de 5 unidades ante desabastecimiento, y validación estricta de entradas numéricas sin dependencias de frameworks.',
+                metricsOrLearnings: 'Suite de pruebas Java puras (AppComercioTest) verificando el 100% de los flujos críticos de negocio y validaciones sin necesidad de JUnit.',
+            },
+        },
+    },
+    {
+        id: 'be-3',
+        category: 'Backend Developer',
+        title: 'Crud Task',
+        technologies: ['Python', 'Django', 'Django REST Framework', 'SQLite', 'uv', 'CoreAPI', 'Git', 'Github'],
+        repoUrl: 'https://github.com/Omarlsant/crud-task',
+        type: 'Individual',
+        description: {
+            en: 'Task management REST API built with Django and Django REST Framework, featuring interactive documentation and input validations.',
+            es: 'API REST de gestión de tareas construida con Django y Django REST Framework, con documentación interactiva y validaciones.',
+        },
+        detailedDescription: {
+            en: 'Modular REST API for the full task CRUD lifecycle built with Django and Django REST Framework. Features versioned routing (/tasks/api/v1/tasks/), interactive API documentation via CoreAPI (/tasks/docs/), Django admin panel integration (/admin/), reverse chronological ordering, strict title trimming and validation, and an automated unit test suite managed with uv.',
+            es: 'API REST modular para el ciclo CRUD completo de tareas con Django y Django REST Framework. Incluye rutas versionadas (/tasks/api/v1/tasks/), documentación interactiva integrada con CoreAPI (/tasks/docs/), panel de administración (/admin/), ordenación cronológica descendente, sanitización y validación estricta de títulos, y suite de pruebas unitarias automatizadas con uv.',
+        },
+        caseStudy: {
+            en: {
+                problem: 'Develop a decoupled backend service for task tracking ensuring data integrity, immediate interactive documentation, and defensive input validation on REST endpoints.',
+                architecturalDecision: 'Django REST Framework ModelViewSet architecture mapped to a Task model on SQLite managed via the high-performance uv package manager, centralizing endpoints in unified versioned routers.',
+                technicalChallenge: 'Resolving dependency compatibility across Django, Django REST Framework, and CoreAPI documentation tools without unnecessary app registrations in INSTALLED_APPS.',
+                metricsOrLearnings: 'Automated unit test suite verifying CRUD operations, empty title rejection, and clean routing across root URL, API, and interactive documentation.',
+            },
+            es: {
+                problem: 'Desarrollar un servicio backend desacoplado para gestión de tareas que garantice integridad de datos, documentación navegable inmediata y validación defensiva en endpoints REST.',
+                architecturalDecision: 'Patrón ModelViewSet de Django REST Framework acoplado a un modelo Task sobre SQLite gestionado con el gestor de paquetes de alto rendimiento uv, centralizando endpoints en un enrutador unificado y versionado.',
+                technicalChallenge: 'Ajuste y compatibilidad de dependencias entre Django, Django REST Framework y herramientas de documentación CoreAPI sin sobrecargar INSTALLED_APPS con paquetes no requeridos.',
+                metricsOrLearnings: 'Suite de pruebas unitarias automatizadas verificando operaciones CRUD, rechazo de títulos vacíos y navegación en URLs raíz y documentación.',
             },
         },
     },
@@ -94,15 +155,15 @@ const rawProjects: LocalizedProjectText[] = [
         caseStudy: {
             en: {
                 problem: 'Generic LLMs hallucinate when queried about proprietary technical documentation, requiring a reliable way to ground responses directly on uploaded reference documents.',
-                architecturalDecision: 'Chose FastAPI for asynchronous Python execution with high throughput. Orchestrated ChromaDB and LangChain to power a dense vector retrieval pipeline, with Docker microservices isolating local (Ollama) and cloud (Gemini) inference environments.',
-                technicalChallenge: 'Optimizing recursive text chunking and overlap ratios to retain semantic continuity without causing token context overflow or retrieval latency spikes.',
-                metricsOrLearnings: 'Achieved sub-second vector similarity retrieval on technical documents with zero hallucinations on ground-truth evaluation queries.',
+                architecturalDecision: 'Chose FastAPI for asynchronous Python execution with high throughput. Orchestrated ChromaDB and LangChain to power a dense vector retrieval pipeline, containerized with Docker Compose to decouple local (Ollama) and cloud (Gemini) inference environments.',
+                technicalChallenge: 'Optimizing recursive text chunking and overlap ratios to retain semantic continuity without causing token context overflow.',
+                metricsOrLearnings: 'Demonstrated semantic vector retrieval over technical documents, grounding responses on source documents to effectively mitigate hallucinations.',
             },
             es: {
                 problem: 'Los LLMs genéricos sufren de alucinaciones al responder sobre documentación técnica específica, requiriendo un sistema que fundamente las respuestas directamente sobre documentos propios.',
-                architecturalDecision: 'Se seleccionó FastAPI por su arquitectura asíncrona de alto rendimiento en Python. ChromaDB y LangChain orquestan el pipeline RAG de búsqueda vectorial densa, desacoplado mediante Docker para inferencia local (Ollama) o remota (Gemini).',
-                technicalChallenge: 'Optimizar las estrategias de chunking recursivo y solapamiento para preservar continuidad semántica sin desbordar el límite de tokens ni degradar la latencia de recuperación.',
-                metricsOrLearnings: 'Búsqueda semántica vectorial en menos de 1 segundo sobre documentos técnicos con eliminación total de alucinaciones en pruebas de verificación.',
+                architecturalDecision: 'Se seleccionó FastAPI por su arquitectura asíncrona en Python. ChromaDB y LangChain orquestan el pipeline RAG de búsqueda vectorial densa, desacoplado mediante Docker Compose para inferencia local (Ollama) o remota (Gemini).',
+                technicalChallenge: 'Optimizar las estrategias de chunking recursivo y solapamiento para preservar continuidad semántica sin desbordar el límite de tokens.',
+                metricsOrLearnings: 'Búsqueda semántica vectorial sobre documentación técnica, fundamentando las respuestas en fuentes de referencia para mitigar alucinaciones del modelo.',
             },
         },
     },
@@ -125,14 +186,14 @@ const rawProjects: LocalizedProjectText[] = [
             en: {
                 problem: 'Clinical obesity diagnosis involves complex multi-class boundaries where standard threshold rules fail to capture non-linear combinations of demographic, metabolic, and lifestyle habits.',
                 architecturalDecision: 'Employed ensemble decision trees (Random Forest & Gradient Boosting) in Scikit-learn rather than opaque deep neural networks for superior interpretability on tabular clinical data, deployed via a lightweight Flask web interface.',
-                technicalChallenge: 'Resolving severe class imbalance across 7 distinct obesity stages while preventing data leakage during target encoding and feature preprocessing.',
-                metricsOrLearnings: 'Achieved over 87% multi-class F1-score with robust stratified k-fold cross-validation and reproducible Docker orchestration.',
+                technicalChallenge: 'Resolving severe class imbalance across distinct obesity stages while preventing data leakage during target encoding and feature preprocessing.',
+                metricsOrLearnings: 'Trained and validated multi-class classification pipeline with robust stratified k-fold cross-validation and reproducible Docker orchestration.',
             },
             es: {
                 problem: 'El diagnóstico de riesgo de obesidad presenta fronteras multiclase complejas donde las reglas estáticas no capturan la interacción no lineal de factores metabólicos y de estilo de vida.',
                 architecturalDecision: 'Se emplearon modelos ensemble (Random Forest y Gradient Boosting) en Scikit-learn sobre redes neuronales complejas por su alta interpretabilidad en datos tabulares clínicos, expuestos mediante una interfaz web ágil en Flask.',
-                technicalChallenge: 'Resolver el marcado desbalanceo de clases entre 7 niveles de obesidad evitando la fuga de datos (data leakage) durante el preprocesamiento y target encoding.',
-                metricsOrLearnings: 'F1-score multiclase superior al 87% validado mediante k-fold estratificado y despliegue reproducible en contenedores Docker.',
+                technicalChallenge: 'Resolver el marcado desbalanceo de clases entre distintos niveles de obesidad evitando la fuga de datos (data leakage) durante el preprocesamiento y target encoding.',
+                metricsOrLearnings: 'Entrenamiento y evaluación del pipeline de clasificación multiclase validado mediante k-fold estratificado y despliegue reproducible en contenedores Docker.',
             },
         },
     },
@@ -153,16 +214,16 @@ const rawProjects: LocalizedProjectText[] = [
         },
         caseStudy: {
             en: {
-                problem: 'Airlines need to accurately isolate the most impactful operational and service levers causing customer dissatisfaction across over 100k passenger records.',
+                problem: 'Airlines need to accurately isolate the most impactful operational and service levers causing customer dissatisfaction across flight records.',
                 architecturalDecision: 'Constructed an end-to-end ML pipeline with Scikit-learn serialized via Joblib, served through a Flask REST backend connected to MySQL for storing historical simulation logs.',
-                technicalChallenge: 'Managing multicollinearity across 22 survey features and handling missing values in flight delay variables without biasing customer satisfaction distributions.',
-                metricsOrLearnings: 'Achieved 92.4% ROC-AUC score, revealing that inflight wifi and seat comfort had exponentially higher correlation with repeat customer loyalty than nominal delays.',
+                technicalChallenge: 'Managing multicollinearity across survey features and handling missing values in flight delay variables without biasing customer satisfaction distributions.',
+                metricsOrLearnings: 'Identified critical service factors, demonstrating quantitatively that inflight wifi and seat comfort impact customer satisfaction more significantly than moderate flight delays.',
             },
             es: {
-                problem: 'Las aerolíneas necesitan aislar con precisión los factores operativos con mayor impacto en la insatisfacción de los pasajeros sobre más de 100.000 registros de vuelos.',
+                problem: 'Las aerolíneas necesitan aislar con precisión los factores operativos con mayor impacto en la insatisfacción de los pasajeros sobre registros de vuelos.',
                 architecturalDecision: 'Construcción de un pipeline ML con Scikit-learn serializado con Joblib, servido mediante backend REST en Flask con MySQL para registrar simulaciones analíticas.',
-                technicalChallenge: 'Controlar la multicolinealidad entre más de 20 variables de encuestas y tratar valores nulos en retrasos de vuelo sin sesgar la distribución de satisfacción.',
-                metricsOrLearnings: 'Se obtuvo un ROC-AUC del 92.4%, demostrando cuantitativamente que la calidad de WiFi a bordo y la ergonomía del asiento superaban el impacto de demoras moderadas.',
+                technicalChallenge: 'Controlar la multicolinealidad entre variables de encuestas y tratar valores nulos en retrasos de vuelo sin sesgar la distribución de satisfacción.',
+                metricsOrLearnings: 'Identificación de factores críticos de servicio, demostrando analíticamente que la calidad del WiFi a bordo y la comodidad del asiento influyen más en la satisfacción que retrasos operacionales moderados.',
             },
         },
     },
@@ -184,7 +245,7 @@ const rawProjects: LocalizedProjectText[] = [
     },
     {
         id: 'ai-7',
-        category: 'AI Developer',
+        category: 'Data Engineer',
         title: 'Job Scraper (Python)',
         technologies: ['Python', 'Selenium', 'BeautifulSoup', 'Pandas', 'NumPy', 'Git', 'Github'],
         repoUrl: 'https://github.com/Omarlsant/job-scraper',
@@ -199,16 +260,16 @@ const rawProjects: LocalizedProjectText[] = [
         },
         caseStudy: {
             en: {
-                problem: 'Tracking hiring trends and tech stack demands in real time requires harvesting dynamic, anti-bot protected job board listings across thousands of postings.',
+                problem: 'Tracking hiring trends and tech stack demands in real time requires harvesting dynamic job board listings across postings.',
                 architecturalDecision: 'Combined Selenium WebDriver in headless mode with BeautifulSoup to parse client-side rendered HTML, exporting normalized datasets into Pandas dataframes.',
                 technicalChallenge: 'Overcoming dynamic element hydration delays, infinite scroll pagination, and rate limiting through randomized delay intervals and robust explicit wait conditions.',
-                metricsOrLearnings: 'Successfully automated extraction and cleansing of 500+ daily offers with zero scraper crashes due to unexpected DOM changes.',
+                metricsOrLearnings: 'Automated data harvesting and structured extraction with robust error handling and explicit waits respecting site limits.',
             },
             es: {
-                problem: 'El seguimiento en tiempo real de tendencias laborales de tecnología requiere recolectar datos de portales protegidos con JavaScript dinámico de manera estructurada.',
-                architecturalDecision: 'Combinación de Selenium WebDriver en modo headless con BeautifulSoup para parseo rápido de DOM, exportando los datos a DataFrames de Pandas para análisis estructurado.',
-                technicalChallenge: 'Gestionar tiempos de carga asíncronos por hidratación dinámica, scroll infinito y límites de peticiones mediante esperas explícitas y retardos aleatorizados.',
-                metricsOrLearnings: 'Extracción automatizada y limpieza estructurada de más de 500 ofertas diarias con resiliencia ante mutaciones inesperadas del DOM.',
+                problem: 'El seguimiento en tiempo real de tendencias laborales de tecnología requiere recolectar datos de portales de empleo con JavaScript dinámico de manera estructurada.',
+                architecturalDecision: 'Combinación de Selenium WebDriver en modo headless con BeautifulSoup para parseo de DOM, exportando los datos a DataFrames de Pandas para análisis estructurado.',
+                technicalChallenge: 'Gestionar tiempos de carga asíncronos por hidratación dinámica, scroll infinito y límites de peticiones mediante esperas explícitas y retardos calculados.',
+                metricsOrLearnings: 'Extracción automatizada y estructuración de ofertas de empleo con manejo robusto de excepciones y esperas explícitas para respetar los límites del portal.',
             },
         },
     },
@@ -229,10 +290,10 @@ const rawProjects: LocalizedProjectText[] = [
         },
     },
 
-    // === Data Analyst Projects ===
+    // === Data Engineer Projects ===
     {
         id: 'da-1',
-        category: 'Data Analyst',
+        category: 'Data Engineer',
         title: 'EDA: Global and Regional Migration',
         technologies: ['Python', 'Jupyter Notebook', 'Pandas', 'NumPy', 'Matplotlib', 'Seaborn', 'Git', 'Github'],
         repoUrl: 'https://github.com/Bootcamp-IA-P4/world-population-migration-eda',
@@ -248,7 +309,7 @@ const rawProjects: LocalizedProjectText[] = [
     },
     {
         id: 'da-2',
-        category: 'Data Analyst',
+        category: 'Data Engineer',
         title: 'EDA: Synthetic Stock Market Data',
         technologies: ['Python', 'Jupyter Notebook', 'Pandas', 'NumPy', 'Matplotlib', 'Seaborn', 'SciPy', 'Git', 'Github'],
         repoUrl: 'https://github.com/Bootcamp-IA-P4/stock-market-eda',
@@ -282,15 +343,15 @@ const rawProjects: LocalizedProjectText[] = [
         caseStudy: {
             en: {
                 problem: 'Presenting a software engineer portfolio on static hosting (GitHub Pages) without server runtimes, avoiding credential exposures and hash URLs while providing rich bilingual accessibility.',
-                architecturalDecision: 'Adopted React 19 + Vite 6 for instant compilation. Configured BrowserRouter with 404 sessionStorage redirect trick and full TypeScript i18next type-safety for zero runtime key typos.',
+                architecturalDecision: 'Adopted React 19 + Vite 6 for rapid compilation. Configured BrowserRouter with 404 sessionStorage redirect trick and full TypeScript i18next type-safety for zero runtime key typos.',
                 technicalChallenge: 'Erradicating legacy frontend AI/Supabase API keys and re-engineering Swiper 3D coverflow navigation with exterior accessible 44px buttons without horizontal scroll.',
-                metricsOrLearnings: '100% security compliance, 0 TypeScript/ESLint errors, sub-700ms production builds, and full responsive touch accessibility.',
+                metricsOrLearnings: 'Delivered clean client-side routing, strict TypeScript translations, zero client-side exposed secrets, and fully responsive accessibility.',
             },
             es: {
                 problem: 'Desplegar un portfolio de ingeniería en hosting estático (GitHub Pages) sin backend, eliminando credenciales expuestas y URLs con hash (#) mientras se garantiza soporte bilingüe accesible.',
-                architecturalDecision: 'Implementación con React 19 + Vite 6 para compilación ultrarrápida. Uso de BrowserRouter con truco de redirección 404 en sessionStorage y tipado estricto con i18next.',
+                architecturalDecision: 'Implementación con React 19 + Vite 6 para compilación ágil. Uso de BrowserRouter con truco de redirección 404 en sessionStorage y tipado estricto con i18next.',
                 technicalChallenge: 'Erradicar claves privadas de IA/Supabase en el cliente y rediseñar las flechas de navegación 3D del carrusel hacia el exterior con touch targets accesibles de 44px sin overflow horizontal.',
-                metricsOrLearnings: '100% de cumplimiento en seguridad, 0 errores en tsc/lint, builds de producción en menos de 700ms y accesibilidad responsive integral.',
+                metricsOrLearnings: 'Enrutamiento limpio del lado del cliente, tipado estricto en traducciones con TypeScript, cero secretos expuestos en el bundle y diseño responsivo accesible.',
             },
         },
     },

@@ -11,12 +11,21 @@ const ProjectsPage: React.FC = () => {
     const [selectedProject, setSelectedProject] = useState<Project | null>(null);
     const [selectedCaseStudyProject, setSelectedCaseStudyProject] = useState<Project | null>(null);
     
+    const [aiFilter, setAiFilter] = useState<'all' | 'ai' | 'data'>('all');
+    
     const projects = getProjectsData(i18n.language);
 
-    const backendProjects = projects.filter(p => p.category === 'Backend Developer');
     const aiProjects = projects.filter(p => p.category === 'AI Developer');
-    const dataAnalystProjects = projects.filter(p => p.category === 'Data Analyst');
+    const dataEngineerProjects = projects.filter(p => p.category === 'Data Engineer');
+    const aiSoftwareProjects = projects.filter(p => p.category === 'AI Developer' || p.category === 'Data Engineer');
+    const backendProjects = projects.filter(p => p.category === 'Backend Developer');
     const fullStackProjects = projects.filter(p => p.category === 'Full Stack Developer');
+
+    const displayedAiSoftwareProjects = aiFilter === 'ai'
+        ? aiProjects
+        : aiFilter === 'data'
+            ? dataEngineerProjects
+            : aiSoftwareProjects;
 
     const handleOpenDetails = (project: Project) => {
         setSelectedProject(project);
@@ -36,7 +45,7 @@ const ProjectsPage: React.FC = () => {
     };
 
     const renderCategorySection = (title: string, categoryProjects: Project[], highlight: string) => (
-        <div className="mb-16 last:mb-0">
+        <section className="mb-20 last:mb-0">
             <h2 className="text-2xl sm:text-3xl font-extrabold mb-8 text-slate-900 border-l-[5px] border-sky-500 pl-4 rounded-xs">
                 <span className="text-sky-600 font-black">{highlight}</span> {title}
             </h2>
@@ -50,7 +59,7 @@ const ProjectsPage: React.FC = () => {
                 />
                 ))}
             </div>
-        </div>
+        </section>
     );
 
     useEffect(() => {
@@ -73,10 +82,70 @@ const ProjectsPage: React.FC = () => {
             </header>
 
             <main>
+                {/* 1. Category: AI Software Developer */}
+                {aiSoftwareProjects.length > 0 && (
+                    <section className="mb-20 last:mb-0">
+                        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-8">
+                            <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 border-l-[5px] border-sky-500 pl-4 rounded-xs">
+                                <span className="text-sky-600 font-black">{t('projects.categories.aiSoftwareHighlight')}</span> {t('projects.categories.aiSoftwareTitle')}
+                            </h2>
+
+                            {/* Subcategory filter pills */}
+                            <div className="flex items-center gap-1.5 p-1 bg-slate-100 border border-slate-200/60 rounded-xl w-fit">
+                                <button
+                                    type="button"
+                                    onClick={() => setAiFilter('all')}
+                                    className={`px-3 py-1.5 text-xs font-bold rounded-lg transition-all duration-200 cursor-pointer ${
+                                        aiFilter === 'all'
+                                            ? 'bg-sky-600 text-white shadow-xs'
+                                            : 'text-slate-600 hover:text-slate-900 hover:bg-slate-200/70'
+                                    }`}
+                                >
+                                    {t('projects.subcategories.all')} ({aiSoftwareProjects.length})
+                                </button>
+                                <button
+                                    type="button"
+                                    onClick={() => setAiFilter('ai')}
+                                    className={`px-3 py-1.5 text-xs font-bold rounded-lg transition-all duration-200 cursor-pointer ${
+                                        aiFilter === 'ai'
+                                            ? 'bg-sky-600 text-white shadow-xs'
+                                            : 'text-slate-600 hover:text-slate-900 hover:bg-slate-200/70'
+                                    }`}
+                                >
+                                    {t('projects.subcategories.ai')} ({aiProjects.length})
+                                </button>
+                                <button
+                                    type="button"
+                                    onClick={() => setAiFilter('data')}
+                                    className={`px-3 py-1.5 text-xs font-bold rounded-lg transition-all duration-200 cursor-pointer ${
+                                        aiFilter === 'data'
+                                            ? 'bg-sky-600 text-white shadow-xs'
+                                            : 'text-slate-600 hover:text-slate-900 hover:bg-slate-200/70'
+                                    }`}
+                                >
+                                    {t('projects.subcategories.dataEngineer')} ({dataEngineerProjects.length})
+                                </button>
+                            </div>
+                        </div>
+
+                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+                            {displayedAiSoftwareProjects.map((project) => (
+                                <ProjectCard
+                                    key={project.id}
+                                    project={project}
+                                    onDetailsClick={handleOpenDetails}
+                                    onCaseStudyClick={handleOpenCaseStudy}
+                                />
+                            ))}
+                        </div>
+                    </section>
+                )}
+
+                {/* 2. Category: Backend Developer */}
                 {backendProjects.length > 0 && renderCategorySection(t('projects.categories.backendTitle'), backendProjects, t('projects.categories.backendHighlight'))}
-                {renderCategorySection(t('projects.categories.aiTitle'), aiProjects, t('projects.categories.aiHighlight'))}
-                {renderCategorySection(t('projects.categories.dataAnalystTitle'), dataAnalystProjects, t('projects.categories.dataAnalystHighlight'))}
-                {renderCategorySection(t('projects.categories.fullStackTitle'), fullStackProjects, t('projects.categories.fullStackHighlight'))}
+
+                {/* 3. Category: Full Stack Developer */}
+                {fullStackProjects.length > 0 && renderCategorySection(t('projects.categories.fullStackTitle'), fullStackProjects, t('projects.categories.fullStackHighlight'))}
             </main>
 
             {selectedProject && (
